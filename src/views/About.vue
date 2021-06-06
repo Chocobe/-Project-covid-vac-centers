@@ -1,19 +1,31 @@
 <template>
 	<div class="about">
-		<h1>This is an about page</h1>
+		<h1>코로나19 데이터 테스트</h1>
 
-		<p>테스트 데이터: {{ myData }}</p>
+		<p>
+			{{ itemList }}
+		</p>
 	</div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import { apiGet_CovidCenters } from "@/api/covidCenter/apiCovidCenter";
+import { DB_CovidCenter } from "@/interface/DB_CovidCenter";
 
 export default Vue.extend({
 	data: () => {
 		return {
-			myData: "Hello World",
+			itemList: [] as DB_CovidCenter[],
 		};
+	},
+
+	async created() {
+		const response = await apiGet_CovidCenters();
+
+		console.log("조회결과: ", response);
+
+		this.itemList = response.data.data;
 	},
 });
 </script>

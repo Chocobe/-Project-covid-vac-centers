@@ -46,4 +46,8 @@ module.exports = {
 			},
 		},
 	],
+
+	ignorePatterns: [
+		"**/mock*.[jt]s",
+	]
 };
