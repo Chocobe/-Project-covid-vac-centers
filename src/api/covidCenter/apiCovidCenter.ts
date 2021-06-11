@@ -10,6 +10,7 @@ import {
 } from "axios";
 
 import {
+	DB_CovidCenter_Get_Params,
 	// DB_CovidCenter_Get_Params,
 	DB_CovidCenter_Response,
 } from "@/interface/DB_CovidCenter";
@@ -25,7 +26,7 @@ import { mock_CovidCenter_Response } from "@/api/covidCenter/mockCovidCenters";
 // 	},
 // });
 
-function mockGet_CovidCenters() {
+function mockGet_CovidCenters(params: DB_CovidCenter_Get_Params) {
 	const mockResponse = {
 		config: {},
 		headers: { "content-type": "application/json; charset=UTF-8" },
@@ -42,16 +43,18 @@ function mockGet_CovidCenters() {
 
 	return new Promise<AxiosResponse>(resolve => {
 		setTimeout(() => {
-			console.log("mock 데이터 사용");
+			console.log("mock 데이터 사용 - params: ", params);
 			resolve(mockResponse);
 		}, 1000);
 	});
 }
 
-function apiGet_CovidCenters(): AxiosPromise<DB_CovidCenter_Response> {
+function apiGet_CovidCenters(
+	params: DB_CovidCenter_Get_Params = {},
+): AxiosPromise<DB_CovidCenter_Response> {
 	// params: DB_CovidCenter_Get_Params = { perPage: 0 },
 	// return apiCovidCenterInstance.get(BASE_URL, { params });
-	return mockGet_CovidCenters();
+	return mockGet_CovidCenters(params);
 }
 
 export { apiGet_CovidCenters };
