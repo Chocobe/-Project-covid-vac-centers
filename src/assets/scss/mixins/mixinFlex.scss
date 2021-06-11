@@ -1,0 +1,19 @@
+// @author: 김영우
+// @description:
+//    * "display: flex"관련 설정을 위한 mixin Stylesheet 입니다.
+
+@mixin flex($justify: center, $align: center, $wrap: wrap, $direction: row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+  flex-direction: $direction;
+}
+
+@mixin flex-inline($justify: center, $align: center, $wrap: wrap, $direction: row) {
+  display: inline-flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+  flex-direction: $direction;
+}

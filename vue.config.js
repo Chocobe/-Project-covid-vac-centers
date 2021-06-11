@@ -13,6 +13,7 @@ module.exports = {
 					@import "@/assets/scss/helpers.scss";
 					@import "@/assets/scss/variables/varBreakPoints.scss";
 					@import "@/assets/scss/mixins/mixinWidthHeight.scss";
+					@import "@/assets/scss/mixins/mixinFlex.scss";
 				`,
 			},
 		},
