@@ -11,6 +11,7 @@ module.exports = {
 					@import "@/assets/scss/variables/varColors.scss";
 					@import "@/assets/scss/variables/varFonts.scss";
 					@import "@/assets/scss/helpers.scss";
+					@import "@/assets/scss/variables/varBreakPoints.scss";
 				`,
 			},
 		},
