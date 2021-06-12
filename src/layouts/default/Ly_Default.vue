@@ -4,6 +4,7 @@
 		<Ly_Default_Header></Ly_Default_Header>
 
 		<!-- Nav -->
+		<Ly_Default_Nav></Ly_Default_Nav>
 
 		<!-- Main -->
 		<main>
@@ -15,10 +16,12 @@
 <script lang="ts">
 import Vue from "vue";
 import Ly_Default_Header from "@/layouts/default/Ly_Default_Header.vue";
+import Ly_Default_Nav from "@/layouts/default/Ly_Default_Nav.vue";
 
 export default Vue.extend({
 	components: {
 		Ly_Default_Header,
+		Ly_Default_Nav,
 	},
 });
 </script>

@@ -42,8 +42,6 @@ export default Vue.extend({
 
 	overflow: hidden;
 
-	border-bottom: 5px solid $colors__gray_01;
-
 	.header {
 		$hospital-width: 200px;
 		$person-width: 100px;
