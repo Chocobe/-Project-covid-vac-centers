@@ -1,7 +1,16 @@
 <template>
 	<li :id="navItem.id" class="navItem" :style="{ backgroundColor: bgColor }">
 		<router-link :to="navItem.path" class="navItem__item">
-			{{ navItem.name }}
+			<template v-if="navItem.icon">
+				<FontAwesomeIcon
+					:icon="navItem.icon"
+					class="navItem__icon"
+				></FontAwesomeIcon>
+			</template>
+
+			<span class="navItem__name">
+				{{ navItem.name }}
+			</span>
 		</router-link>
 	</li>
 </template>
@@ -42,6 +51,12 @@ export default Vue.extend({
 		font-weight: 900;
 		text-align: center;
 		word-break: keep-all;
+	}
+
+	&__icon {
+		margin-right: 5px;
+
+		color: $colors__black_01;
 	}
 }
 </style>
