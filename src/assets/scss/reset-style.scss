@@ -128,3 +128,9 @@ img {
   max-width: 100%;
   vertical-align: top;
 }
+
+// reset-style 커스텀
+a {
+  color: $colors__black_01;
+  text-decoration: none;
+}
