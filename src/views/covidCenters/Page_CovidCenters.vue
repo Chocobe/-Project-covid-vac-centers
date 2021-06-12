@@ -29,7 +29,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { module_covidCenters } from "@/store/covidCenters/module_CovidCenters";
-import { DB_CovidCenter } from "@/interface/DB_CovidCenter";
+import { DB_CovidCenter } from "@/interface/covidCenter/DB_CovidCenter";
 
 export default Vue.extend({
 	data: () => {

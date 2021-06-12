@@ -13,7 +13,7 @@ import {
 	DB_CovidCenter_Get_Params,
 	// DB_CovidCenter_Get_Params,
 	DB_CovidCenter_Response,
-} from "@/interface/DB_CovidCenter";
+} from "@/interface/covidCenter/DB_CovidCenter";
 
 import { mock_CovidCenter_Response } from "@/api/covidCenter/mockCovidCenters";
 

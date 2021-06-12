@@ -11,7 +11,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { apiGet_CovidCenters } from "@/api/covidCenter/apiCovidCenter";
-import { DB_CovidCenter } from "@/interface/DB_CovidCenter";
+import { DB_CovidCenter } from "@/interface/covidCenter/DB_CovidCenter";
 
 export default Vue.extend({
 	data: () => {

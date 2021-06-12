@@ -3,7 +3,7 @@
  * @description:
  *    코로나 예방접종 검색 페이지 Store Module interface 입니다.
  */
-import { DB_CovidCenter } from "@/interface/DB_CovidCenter";
+import { DB_CovidCenter } from "@/interface/covidCenter/DB_CovidCenter";
 
 interface IModule_CovidCenters {
 	// 예방접종 센터 조회 원본

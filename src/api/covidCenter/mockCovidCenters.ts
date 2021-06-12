@@ -6,7 +6,7 @@
 import {
 	DB_CovidCenter,
 	DB_CovidCenter_Response,
-} from "@/interface/DB_CovidCenter";
+} from "@/interface/covidCenter/DB_CovidCenter";
 
 const mock_CovidCenter_Response: DB_CovidCenter_Response = {
 	currentCount: 268,

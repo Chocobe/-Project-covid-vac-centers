@@ -10,7 +10,7 @@ import { IModule_RootState } from "@/store/root/IModule_RootState";
 import {
 	DB_CovidCenter,
 	DB_CovidCenter_Get_Params,
-} from "@/interface/DB_CovidCenter";
+} from "@/interface/covidCenter/DB_CovidCenter";
 import { apiGet_CovidCenters } from "@/api/covidCenter/apiCovidCenter";
 
 const module_covidCenters: Module<IModule_CovidCenters, IModule_RootState> = {
