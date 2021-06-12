@@ -26,5 +26,9 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-//
+#app {
+	height: 100vh;
+
+	overflow-y: auto;
+}
 </style>

@@ -20,6 +20,11 @@ const defaultRoute: RouteConfig = {
 					/* webpackChunkName: "Page_CovidCenters" */ "@/views/covidCenters/Page_CovidCenters.vue"
 				),
 		},
+		{
+			path: "dev",
+			component: () =>
+				import(/* webpackChunkName: "Page_Developer" */ "@/views/About.vue"),
+		},
 	],
 };
 

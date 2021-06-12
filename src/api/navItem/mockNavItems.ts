@@ -20,11 +20,6 @@ const mock_NavItem_Response: DB_NavItem[] = [
     bgColor: "#03A9F4",
     icon: "code",
   },
-  {
-    id: 3,
-    name: "Hello World",
-    path: "hello-world",
-  },
 ];
 
 export { mock_NavItem_Response };

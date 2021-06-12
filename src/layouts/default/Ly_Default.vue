@@ -4,7 +4,9 @@
 		<Ly_Default_Header></Ly_Default_Header>
 
 		<!-- Nav -->
-		<Ly_Default_Nav></Ly_Default_Nav>
+		<div class="navWrapper" :class="{ fixed: isFixedNav }">
+			<Ly_Default_Nav></Ly_Default_Nav>
+		</div>
 
 		<!-- Main -->
 		<main>
@@ -23,6 +25,28 @@ export default Vue.extend({
 		Ly_Default_Header,
 		Ly_Default_Nav,
 	},
+
+	data: () => {
+		return {
+			// Scroll > 300 일 때, true
+			isFixedNav: false,
+		};
+	},
+
+	methods: {
+		scrollHandler() {
+			const scrollY = window.scrollY;
+			this.isFixedNav = scrollY > 300;
+		},
+	},
+
+	mounted() {
+		window.addEventListener("scroll", this.scrollHandler, true);
+	},
+
+	beforeDestroy() {
+		window.removeEventListener("scroll", this.scrollHandler, true);
+	},
 });
 </script>
 
@@ -32,5 +56,15 @@ export default Vue.extend({
 	max-width: $media__maxWidth_md;
 
 	margin: 0 auto;
+
+	position: relative;
+
+	.navWrapper.fixed {
+		@include width-height(100%);
+
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
 }
 </style>

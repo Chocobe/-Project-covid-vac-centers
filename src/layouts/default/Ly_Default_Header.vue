@@ -40,6 +40,7 @@ export default Vue.extend({
 #Ly_Default_Header {
 	@include width-height(100%, 300px);
 
+	background-color: $colors__white_01;
 	overflow: hidden;
 
 	.header {
