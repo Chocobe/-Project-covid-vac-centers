@@ -38,6 +38,25 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 .button {
-	//
+	@include width-height(100%);
+
+	padding: 10px 10px;
+
+	display: inline-block;
+
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0 3px 6px rgba(#000, 0.36);
+	background-color: $colors__white_01;
+
+	transition: background-color 0.25s;
+
+	&:hover {
+		background-color: rgba($colors__blue_02, 0.3);
+	}
+
+	&:active {
+		background-color: rgba($colors__blue_02, 1);
+	}
 }
 </style>
