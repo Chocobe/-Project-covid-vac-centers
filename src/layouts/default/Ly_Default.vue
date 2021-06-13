@@ -1,7 +1,9 @@
 <template>
-	<div id="Layout_Default">
+	<div id="Layout_Default" @scroll="scrollHandler">
 		<!-- Header -->
-		<Ly_Default_Header></Ly_Default_Header>
+		<div class="headerWrapper">
+			<Ly_Default_Header></Ly_Default_Header>
+		</div>
 
 		<!-- Nav -->
 		<div class="navWrapper" :class="{ fixed: isFixedNav }">
@@ -9,7 +11,7 @@
 		</div>
 
 		<!-- Main -->
-		<main>
+		<main class="main">
 			<Comp_TransitionOpacity>
 				<router-view></router-view>
 			</Comp_TransitionOpacity>
@@ -39,46 +41,49 @@ export default Vue.extend({
 
 	methods: {
 		scrollHandler() {
-			const scrollY = window.scrollY;
-			this.isFixedNav = scrollY > 300;
+			const rootElement = this.$el as HTMLDivElement;
+			const scrollTop = rootElement.scrollTop;
+			this.isFixedNav = scrollTop > 300;
 		},
-	},
-
-	mounted() {
-		window.addEventListener("scroll", this.scrollHandler, true);
-	},
-
-	beforeDestroy() {
-		window.removeEventListener("scroll", this.scrollHandler, true);
 	},
 });
 </script>
 
 <style scoped lang="scss">
 #Layout_Default {
-	@include width-height(100%);
-	max-width: $media__maxWidth_md;
+	@include width-height(100%, 100vh);
 
 	margin: 0 auto;
 
 	position: relative;
+	overflow-y: scroll;
 
-	.navWrapper.fixed {
+	.headerWrapper {
 		@include width-height(100%);
+		max-width: $media__maxWidth_md;
 
-		position: fixed;
-		top: 0;
-		left: 0;
+		margin: 0 auto;
 	}
 
-	.mainRouter-enter-active,
-	.mainRouter-leave-active {
-		transition: opacity 0.25s;
+	.navWrapper {
+		@include width-height(100%);
+		max-width: $media__maxWidth_md;
+
+		margin: 0 auto;
+
+		&.fixed {
+			position: fixed;
+			top: 0;
+			left: calc(50% - 8px);
+			transform: translateX(-50%);
+		}
 	}
 
-	.mainRouter-enter,
-	.mainRouter-leave-to {
-		opacity: 0;
+	.main {
+		@include width-height(100%);
+		max-width: $media__maxWidth_md;
+
+		margin: 0 auto;
 	}
 }
 </style>

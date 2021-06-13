@@ -29,7 +29,7 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 #Ly_Default_Nav {
-	@include width-height();
+	// @include width-height();
 
 	.nav__ul {
 		@include flex(flex-start, stretch);
