@@ -1,22 +1,40 @@
 <template>
 	<div id="page-covid-centers">
-		<h1>코로나 예방접종 센터 검색</h1>
+		<!-- 검색 영역 -->
+		<Bl_CovidCenters_Search></Bl_CovidCenters_Search>
+
+		<!-- 검색 결과 영역 -->
+		<Bl_CovidCenters_Result></Bl_CovidCenters_Result>
+
+		<!-- 안내 영역 -->
+		<h1>안내 영역</h1>
 	</div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import { module_covidCenters } from "@/store/covidCenters/module_CovidCenters";
+import Bl_CovidCenters_Search from "@/views/covidCenters/blCovidCentersSearch/Bl_CovidCenters_Search.vue";
+import Bl_CovidCenters_Result from "@/views/covidCenters/Bl_CovidCenters_Result.vue";
 
 export default Vue.extend({
-	//
+	components: {
+		Bl_CovidCenters_Search,
+		Bl_CovidCenters_Result,
+	},
+
+	async created() {
+		if (!this.$store.hasModule("/covidCenters")) {
+			this.$store.registerModule("/covidCenters", module_covidCenters);
+		}
+
+		await this.$store.dispatch("/covidCenters/GET_COVID_CENTER_LIST");
+	},
 });
 </script>
 
 <style lang="scss">
 #page-covid-centers {
-	width: 100%;
-	max-width: 1200px;
-
-	margin: 0 auto;
+	//
 }
 </style>

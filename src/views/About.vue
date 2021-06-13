@@ -2,56 +2,63 @@
 	<div class="about">
 		<h1>코로나19 데이터 테스트</h1>
 
-		<div style="margin: 20px 0">
-			<Comp_Button
-				name="강원도"
+		<div class="cardList">
+			<Comp_Card
+				title="제목"
+				:src="require('../assets/image/kor-geo-image.png')"
 				@click="onClick"
-				@enter="onEnter"
-				@leave="onLeave"
-			></Comp_Button>
+			></Comp_Card>
+			<Comp_Card
+				title="제목"
+				:src="require('../assets/image/kor-geo-image.png')"
+				imgHeight="200px"
+			>
+				<template v-slot="slotData">
+					<img
+						:src="slotData.src"
+						:alt="slotData.alt"
+						:height="slotData.imgHeight"
+					/>
+				</template>
 
-			<Comp_Button
-				name="부산광역시"
-				@click="onClick"
-				@enter="onEnter"
-				@leave="onLeave"
-			></Comp_Button>
+				<template v-slot:content>
+					<ul>
+						<li>리스트 1</li>
+						<li>리스트 2</li>
+						<li>리스트 3</li>
+					</ul>
+				</template>
+			</Comp_Card>
+			<Comp_Card></Comp_Card>
+			<Comp_Card title="제목"></Comp_Card>
 		</div>
-
-		<p>
-			{{ itemList }}
-		</p>
 	</div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import { DB_CovidCenter } from "@/interface/covidCenter/DB_CovidCenter";
-import Comp_Button from "@/components/Comp_Button.vue";
+import Comp_Card from "@/components/Comp_Card.vue";
 
 export default Vue.extend({
 	components: {
-		Comp_Button,
-	},
-
-	data: () => {
-		return {
-			itemList: [] as DB_CovidCenter[],
-		};
+		Comp_Card,
 	},
 
 	methods: {
-		onClick(name: string) {
-			console.log("클릭함: ", name);
-		},
-
-		onEnter(name: string) {
-			console.log("Hover: ", name);
-		},
-
-		onLeave(name: string) {
-			console.log("Leave: ", name);
+		onClick(): void {
+			console.log("클릭함");
 		},
 	},
 });
 </script>
+
+<style scoped lang="scss">
+.cardList {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 20px;
+	gap: 20px;
+
+	margin: 20px;
+}
+</style>
