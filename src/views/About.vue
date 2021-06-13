@@ -26,7 +26,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { apiGet_CovidCenters } from "@/api/covidCenter/apiCovidCenter";
 import { DB_CovidCenter } from "@/interface/covidCenter/DB_CovidCenter";
 import Comp_Button from "@/components/Comp_Button.vue";
 
@@ -53,14 +52,6 @@ export default Vue.extend({
 		onLeave(name: string) {
 			console.log("Leave: ", name);
 		},
-	},
-
-	async created() {
-		const response = await apiGet_CovidCenters();
-
-		console.log("조회결과: ", response);
-
-		this.itemList = response.data.data;
 	},
 });
 </script>
