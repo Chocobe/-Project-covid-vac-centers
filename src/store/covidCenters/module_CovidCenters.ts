@@ -18,8 +18,18 @@ const module_covidCenters: Module<IModule_CovidCenters, IModule_RootState> = {
 
 	state: () => {
 		return {
+			// 예방접종 센터 조회 원본
 			originCovidCenterList: [],
+
+			// 예방접종 센터 "시도 / 시군구" 분할 Map
+			// (Map 으로 가공된 originCovidCenterList)
 			covidCentersMap: new Map(),
+
+			// 검색 대상 "시도" 명
+			targetSido: "",
+
+			// Mouse Hover 된 "시도" 명
+			hoverSido: "",
 		};
 	},
 
@@ -59,6 +69,14 @@ const module_covidCenters: Module<IModule_CovidCenters, IModule_RootState> = {
 			console.log("가공 결과: ", covidCentersMap);
 
 			state.covidCentersMap = covidCentersMap;
+		},
+
+		setTargetSido(state, targetSido: string): void {
+			state.targetSido = targetSido;
+		},
+
+		setHoverSido(state, hoverSido: string): void {
+			state.hoverSido = hoverSido;
 		},
 	},
 
