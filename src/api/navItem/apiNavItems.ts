@@ -23,11 +23,7 @@ function apiGet_NavItems(): AxiosPromise<DB_NavItem[]> {
 	};
 
 	return new Promise<AxiosResponse<DB_NavItem[]>>(resolve => {
-		setTimeout(() => {
-			console.log("메뉴 조회 시작~~~");
-
-			return resolve(mockResponse);
-		}, 1000);
+		return resolve(mockResponse);
 	});
 }
 
