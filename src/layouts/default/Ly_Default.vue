@@ -10,7 +10,9 @@
 
 		<!-- Main -->
 		<main>
-			<router-view></router-view>
+			<Comp_TransitionOpacity>
+				<router-view></router-view>
+			</Comp_TransitionOpacity>
 		</main>
 	</div>
 </template>
@@ -19,11 +21,13 @@
 import Vue from "vue";
 import Ly_Default_Header from "@/layouts/default/Ly_Default_Header.vue";
 import Ly_Default_Nav from "@/layouts/default/Ly_Default_Nav.vue";
+import Comp_TransitionOpacity from "@/components/Comp_TransitionOpacity.vue";
 
 export default Vue.extend({
 	components: {
 		Ly_Default_Header,
 		Ly_Default_Nav,
+		Comp_TransitionOpacity,
 	},
 
 	data: () => {
@@ -65,6 +69,16 @@ export default Vue.extend({
 		position: fixed;
 		top: 0;
 		left: 0;
+	}
+
+	.mainRouter-enter-active,
+	.mainRouter-leave-active {
+		transition: opacity 0.25s;
+	}
+
+	.mainRouter-enter,
+	.mainRouter-leave-to {
+		opacity: 0;
 	}
 }
 </style>

@@ -1,14 +1,21 @@
 <template>
 	<div id="app">
-		<router-view></router-view>
+		<Comp_TransitionOpacity>
+			<router-view></router-view>
+		</Comp_TransitionOpacity>
 	</div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import { module_Nav } from "@/store/nav/module_Nav";
+import Comp_TransitionOpacity from "@/components/Comp_TransitionOpacity.vue";
 
 export default Vue.extend({
+	components: {
+		Comp_TransitionOpacity,
+	},
+
 	methods: {
 		async initNavModule() {
 			if (!this.$store.hasModule("/nav")) {
@@ -29,6 +36,6 @@ export default Vue.extend({
 #app {
 	height: 100vh;
 
-	overflow-y: auto;
+	overflow-y: scroll;
 }
 </style>
