@@ -44,6 +44,8 @@ export default Vue.extend({
 	min-width: 250px;
 
 	&__item {
+		@include width-height(100%);
+
 		padding: 10px 20px;
 
 		color: $colors__white_01;
@@ -51,6 +53,12 @@ export default Vue.extend({
 		font-weight: 900;
 		text-align: center;
 		word-break: keep-all;
+
+		transition: background-color, 0.25s;
+
+		&:hover {
+			background-color: rgba(#fff, 0.2);
+		}
 	}
 
 	&__icon {
