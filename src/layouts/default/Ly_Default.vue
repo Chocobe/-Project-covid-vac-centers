@@ -71,6 +71,8 @@ export default Vue.extend({
 
 		margin: 0 auto;
 
+		z-index: 2;
+
 		&.fixed {
 			position: fixed;
 			top: 0;

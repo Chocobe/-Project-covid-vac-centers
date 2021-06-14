@@ -103,7 +103,7 @@ export default Vue.extend({
 	transition: background-color 0.3s;
 
 	&:hover {
-		background-color: $colors__green_02;
+		background-color: $colors__green_03;
 	}
 
 	&:last-child {
