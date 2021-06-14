@@ -30,7 +30,13 @@
 				</template>
 			</Comp_Card>
 			<Comp_Card></Comp_Card>
-			<Comp_Card title="제목"></Comp_Card>
+
+			<!-- Bl_CovidCenters_Card -->
+			<Bl_CovidCenters_Card
+				title="타이틀"
+				content="컨텐츠 🐫"
+				@click="onMyClick"
+			></Bl_CovidCenters_Card>
 		</div>
 	</div>
 </template>
@@ -38,13 +44,19 @@
 <script lang="ts">
 import Vue from "vue";
 import Comp_Card from "@/components/Comp_Card.vue";
+import Bl_CovidCenters_Card from "@/views/covidCenters/blCovidCentersSearch/Bl_CovidCenters_Card.vue";
 
 export default Vue.extend({
 	components: {
 		Comp_Card,
+		Bl_CovidCenters_Card,
 	},
 
 	methods: {
+		onMyClick(): void {
+			console.log("안녕하세요~");
+		},
+
 		onClick(): void {
 			console.log("클릭함");
 		},
