@@ -15,8 +15,11 @@
 				:class="{ marginBottom_40: !sidoList.length }"
 			>
 				<template v-for="sido of sidoList">
-					<li :key="sido.id">
-						{{ sido.centerName }}
+					<li :key="`${sido.id}-${sido.centerName}`">
+						<Bl_CovidCenters_Card
+							:covidCenterInfo="sido"
+							@click="goToDetail(sido)"
+						></Bl_CovidCenters_Card>
 					</li>
 				</template>
 			</ul>
@@ -28,10 +31,12 @@
 import Vue from "vue";
 import { DB_CovidCenter } from "@/interface/covidCenter/DB_CovidCenter";
 import Comp_TransitionOpacity from "@/components/Comp_TransitionOpacity.vue";
+import Bl_CovidCenters_Card from "@/views/covidCenters/blCovidCentersSearch/Bl_CovidCenters_Card.vue";
 
 export default Vue.extend({
 	components: {
 		Comp_TransitionOpacity,
+		Bl_CovidCenters_Card,
 	},
 
 	computed: {
@@ -73,6 +78,12 @@ export default Vue.extend({
 			return `${targetSido} (${this.sidoList.length})`;
 		},
 	},
+
+	methods: {
+		goToDetail(sido: DB_CovidCenter): void {
+			console.log("상세페이지 이동: ", sido.centerName);
+		},
+	},
 });
 </script>
 
@@ -86,7 +97,6 @@ export default Vue.extend({
 
 	.subTitle {
 		color: $colors__black_02;
-		/*font-size: 20px;*/
 	}
 
 	.title {
@@ -98,7 +108,10 @@ export default Vue.extend({
 	}
 
 	.cardList {
-		//
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: 20px;
+		gap: 20px;
 	}
 }
 </style>
