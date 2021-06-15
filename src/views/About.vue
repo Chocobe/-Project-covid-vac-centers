@@ -1,59 +1,113 @@
 <template>
 	<div class="about">
-		<h1>코로나19 데이터 테스트</h1>
+		<h1 class="about__title">컴포넌트 개발 페이지</h1>
 
-		<div class="cardList">
-			<!-- Bl_CovidCenters_Card -->
-			<Bl_CovidCenters_Card
-				@click="onMyClick"
-				:covidCenterInfo="covidCenterInfo"
-			>
-			</Bl_CovidCenters_Card>
+		<h1 class="about__title">선택한 값: {{ selectedValue }}</h1>
 
-			<Comp_Card
-				title="제목"
-				:src="require('../assets/image/kor-geo-image.png')"
-				@click="onClick"
-			></Comp_Card>
-			<Comp_Card
-				title="제목"
-				:src="require('../assets/image/kor-geo-image.png')"
-				imgHeight="200px"
-			>
-				<template v-slot="slotData">
-					<img
-						:src="slotData.src"
-						:alt="slotData.alt"
-						:height="slotData.imgHeight"
-					/>
-				</template>
+		<!--		<div style="height: 100px">-->
+		<Comp_SelectBox
+			:dataList="selectBoxData"
+			v-model="selectedValue"
+			height="50px"
+			fontSize="20px"
+			padding="10px 20px"
+		></Comp_SelectBox>
+		<!--		</div>-->
 
-				<template v-slot:content>
-					<ul>
-						<li>리스트 1</li>
-						<li>리스트 2</li>
-						<li>리스트 3</li>
-					</ul>
-				</template>
-			</Comp_Card>
-			<Comp_Card></Comp_Card>
+		<h1 class="about__title">선택한 값: {{ selectedValue2 }}</h1>
+
+		<div class="testBox">
+			<Comp_SelectBox
+				:dataList="selectBoxData"
+				v-model="selectedValue2"
+			></Comp_SelectBox>
 		</div>
+
+		<h1 class="about__title">선택한 값: {{ selectedValue3 }}</h1>
+
+		<div class="testBox">
+			<Comp_SelectBox
+				:dataList="selectBoxData"
+				v-model="selectedValue3"
+				placeholder='"구군"을 선택해 주세요'
+			>
+			</Comp_SelectBox>
+		</div>
+
+		<!--		<div class="cardList">-->
+		<!--			&lt;!&ndash; Bl_CovidCenters_Card &ndash;&gt;-->
+		<!--			<Bl_CovidCenters_Card-->
+		<!--				@click="onMyClick"-->
+		<!--				:covidCenterInfo="covidCenterInfo"-->
+		<!--			>-->
+		<!--			</Bl_CovidCenters_Card>-->
+
+		<!--			<Comp_Card-->
+		<!--				title="제목"-->
+		<!--				:src="require('../assets/image/kor-geo-image.png')"-->
+		<!--				@click="onClick"-->
+		<!--			></Comp_Card>-->
+		<!--			<Comp_Card-->
+		<!--				title="제목"-->
+		<!--				:src="require('../assets/image/kor-geo-image.png')"-->
+		<!--				imgHeight="200px"-->
+		<!--			>-->
+		<!--				<template v-slot="slotData">-->
+		<!--					<img-->
+		<!--						:src="slotData.src"-->
+		<!--						:alt="slotData.alt"-->
+		<!--						:height="slotData.imgHeight"-->
+		<!--					/>-->
+		<!--				</template>-->
+
+		<!--				<template v-slot:content>-->
+		<!--					<ul>-->
+		<!--						<li>리스트 1</li>-->
+		<!--						<li>리스트 2</li>-->
+		<!--						<li>리스트 3</li>-->
+		<!--					</ul>-->
+		<!--				</template>-->
+		<!--			</Comp_Card>-->
+		<!--			<Comp_Card></Comp_Card>-->
+		<!--		</div>-->
 	</div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import Comp_Card from "@/components/Comp_Card.vue";
-import Bl_CovidCenters_Card from "@/views/covidCenters/blCovidCentersSearch/Bl_CovidCenters_Card.vue";
+// import Comp_Card from "@/components/Comp_Card.vue";
+// import Bl_CovidCenters_Card from "@/views/covidCenters/blCovidCentersSearch/Bl_CovidCenters_Card.vue";
+import Comp_SelectBox from "@/components/Comp_SelectBox.vue";
+import { I_Comp_SelectBox } from "@/interface/components/I_Comp_SelectBox";
 
 export default Vue.extend({
 	components: {
-		Comp_Card,
-		Bl_CovidCenters_Card,
+		// Comp_Card,
+		// Bl_CovidCenters_Card,
+		Comp_SelectBox,
 	},
 
 	data: () => {
 		return {
+			selectedValue: "",
+			selectedValue2: "",
+			selectedValue3: "",
+
+			selectBoxData: [
+				{
+					selector: "옵션 1",
+					value: "값 1",
+				},
+				{
+					selector: "옵션 2",
+					value: "값 2",
+				},
+				{
+					selector: "옵션 3",
+					value: "값 3",
+				},
+			] as I_Comp_SelectBox<string>[],
+
 			covidCenterInfo: {
 				address: "부산광역시 사하구 하신번영로 175",
 				centerName: "코로나19 부산광역시 사하구 예방접종센터",
@@ -86,7 +140,29 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-.cardList {
+.about {
+	//
+
+	.about__title {
+		margin: 20px 0;
+
+		color: $colors__black_02;
+		font-size: 30px;
+		font-weight: 900;
+	}
+
+	.resetButton {
+		/*border-radius: 10px;*/
+	}
+
+	.testBox {
+		@include width-height(350px);
+		margin: 50px auto 0;
+	}
+}
+
+/*
+	.cardList {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 20px;
@@ -110,4 +186,5 @@ export default Vue.extend({
 		}
 	}
 }
+*/
 </style>

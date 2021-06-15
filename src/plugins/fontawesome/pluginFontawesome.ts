@@ -10,7 +10,12 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
 // Solid icon
-import { faSearchLocation, faCode } from "@fortawesome/free-solid-svg-icons";
+import {
+	faSearchLocation,
+	faCode,
+	faAngleDown,
+	faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 
 // Regular icon
 import { faUser as farUser } from "@fortawesome/free-regular-svg-icons";
@@ -19,6 +24,8 @@ library.add(
 	// Solid icon
 	faSearchLocation,
 	faCode,
+	faAngleDown,
+	faTimes,
 
 	// Regular icon
 	farUser,
