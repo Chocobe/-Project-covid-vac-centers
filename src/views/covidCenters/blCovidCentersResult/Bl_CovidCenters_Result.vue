@@ -44,7 +44,7 @@ import Vue from "vue";
 import { DB_CovidCenter } from "@/interface/covidCenter/DB_CovidCenter";
 import Comp_TransitionOpacity from "@/components/Comp_TransitionOpacity.vue";
 import Comp_SelectBox from "@/components/Comp_SelectBox.vue";
-import Bl_CovidCenters_Card from "@/views/covidCenters/blCovidCentersSearch/Bl_CovidCenters_Card.vue";
+import Bl_CovidCenters_Card from "@/views/covidCenters/blCovidCentersResult/Bl_CovidCenters_Card.vue";
 import { I_Comp_SelectBox } from "@/interface/components/I_Comp_SelectBox";
 
 export default Vue.extend({
@@ -183,7 +183,9 @@ export default Vue.extend({
 		},
 
 		moveScroll(): void {
-			//
+			this.$nextTick(() => {
+				this.$el.scrollIntoView({ behavior: "smooth" });
+			});
 		},
 
 		onChangeSigungu(value: string): void {

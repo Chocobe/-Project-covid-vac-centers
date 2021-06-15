@@ -38,6 +38,8 @@
 </template>
 
 <script lang="ts">
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import Vue, { PropType } from "vue";
 import { I_Comp_SelectBox } from "@/interface/components/I_Comp_SelectBox";
 

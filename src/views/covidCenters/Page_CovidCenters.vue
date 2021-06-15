@@ -14,8 +14,8 @@
 <script lang="ts">
 import Vue from "vue";
 import { module_covidCenters } from "@/store/covidCenters/module_CovidCenters";
-import Bl_CovidCenters_Search from "@/views/covidCenters/blCovidCenterResult/Bl_CovidCenters_Search.vue";
-import Bl_CovidCenters_Result from "@/views/covidCenters/blCovidCenterResult/Bl_CovidCenters_Result.vue";
+import Bl_CovidCenters_Search from "@/views/covidCenters/blCovidCentersSearch/Bl_CovidCenters_Search.vue";
+import Bl_CovidCenters_Result from "@/views/covidCenters/blCovidCentersResult/Bl_CovidCenters_Result.vue";
 
 export default Vue.extend({
 	components: {
