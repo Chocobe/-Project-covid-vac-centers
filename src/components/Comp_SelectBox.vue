@@ -71,6 +71,11 @@ export default Vue.extend({
 			type: String,
 			default: "5px 10px",
 		},
+
+		backgroundColor: {
+			type: String,
+			default: "transparent",
+		},
 	},
 
 	computed: {
@@ -95,7 +100,7 @@ export default Vue.extend({
 
 		initStyle(): void {
 			const style = `
-				height: ${this.height}; padding: ${this.padding};
+				height: ${this.height}; padding: ${this.padding}; background-color: ${this.backgroundColor};
 			`;
 
 			const selectBoxElement = this.$el.querySelector(

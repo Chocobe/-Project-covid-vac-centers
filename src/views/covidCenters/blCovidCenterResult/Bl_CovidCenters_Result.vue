@@ -3,17 +3,24 @@
 		<h3 class="subTitle">코로나 예방접종 센터 조회 결과</h3>
 
 		<Comp_TransitionOpacity>
-			<h1 :key="title" class="title">
-				{{ title }}
-			</h1>
+			<div class="titleWrapper" :key="title">
+				<h1 class="title">
+					{{ title }}
+				</h1>
+
+				<Comp_SelectBox
+					v-if="hasSidoData"
+					class="sigunguSelector"
+					:dataList="[]"
+					v-model="selectedValue"
+					placeholder="시군구 를 선택해 주세요"
+					backgroundColor="#fff"
+				></Comp_SelectBox>
+			</div>
 		</Comp_TransitionOpacity>
 
 		<Comp_TransitionOpacity>
-			<ul
-				class="cardList"
-				:key="title"
-				:class="{ marginBottom_40: !sidoList.length }"
-			>
+			<ul class="cardList" v-if="sidoList.length > 0" :key="title">
 				<template v-for="sido of sidoList">
 					<li :key="`${sido.id}-${sido.centerName}`">
 						<Bl_CovidCenters_Card
@@ -31,12 +38,21 @@
 import Vue from "vue";
 import { DB_CovidCenter } from "@/interface/covidCenter/DB_CovidCenter";
 import Comp_TransitionOpacity from "@/components/Comp_TransitionOpacity.vue";
+import Comp_SelectBox from "@/components/Comp_SelectBox.vue";
 import Bl_CovidCenters_Card from "@/views/covidCenters/blCovidCentersSearch/Bl_CovidCenters_Card.vue";
+import { I_Comp_SelectBox } from "@/interface/components/I_Comp_SelectBox";
 
 export default Vue.extend({
 	components: {
 		Comp_TransitionOpacity,
+		Comp_SelectBox,
 		Bl_CovidCenters_Card,
+	},
+
+	data: () => {
+		return {
+			selectedValue: "",
+		};
 	},
 
 	computed: {
@@ -68,6 +84,10 @@ export default Vue.extend({
 			return sidoList;
 		},
 
+		sigunguSelectList(): I_Comp_SelectBox<string>[] {
+			return [];
+		},
+
 		title(): string {
 			const targetSido = this.targetSido;
 
@@ -76,6 +96,10 @@ export default Vue.extend({
 			}
 
 			return `${targetSido} (${this.sidoList.length})`;
+		},
+
+		hasSidoData(): boolean {
+			return this.sidoList.length > 0;
 		},
 	},
 
@@ -99,12 +123,25 @@ export default Vue.extend({
 		color: $colors__black_02;
 	}
 
-	.title {
-		margin: 20px 0;
+	.titleWrapper {
+		@include flex();
 
-		color: $colors__black_01;
-		font-size: 30px;
-		text-align: center;
+		.title {
+			@include width-height(100%);
+
+			margin: 20px 0;
+
+			color: $colors__black_01;
+			font-size: 30px;
+			text-align: center;
+		}
+
+		.sigunguSelector {
+			@include width-height(100%);
+			max-width: 300px;
+
+			margin: 0 auto 40px;
+		}
 	}
 
 	.cardList {
