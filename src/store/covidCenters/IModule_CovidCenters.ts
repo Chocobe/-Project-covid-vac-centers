@@ -16,6 +16,9 @@ interface IModule_CovidCenters {
 	// 검색 대상 "시도" 명
 	targetSido: string;
 
+	// 검색 대상 "시군구" 명
+	targetSigungu: string;
+
 	// Mouse Hover 된 "시도" 명
 	hoverSido: string;
 }

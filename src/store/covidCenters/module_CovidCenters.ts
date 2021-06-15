@@ -27,6 +27,8 @@ const module_covidCenters: Module<IModule_CovidCenters, IModule_RootState> = {
 
 			// 검색 대상 "시도" 명
 			targetSido: "",
+			// 검색 대상 "시군구" 명
+			targetSigungu: "",
 
 			// Mouse Hover 된 "시도" 명
 			hoverSido: "",
@@ -73,6 +75,10 @@ const module_covidCenters: Module<IModule_CovidCenters, IModule_RootState> = {
 
 		setTargetSido(state, targetSido: string): void {
 			state.targetSido = targetSido;
+		},
+
+		setTargetSigungu(state, targetSigungu: string): void {
+			state.targetSigungu = targetSigungu;
 		},
 
 		setHoverSido(state, hoverSido: string): void {

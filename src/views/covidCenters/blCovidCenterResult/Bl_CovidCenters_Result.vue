@@ -1,6 +1,6 @@
 <template>
 	<div id="Bl_CovidCenter_Result">
-		<h3 class="subTitle">코로나 예방접종 센터 조회 결과</h3>
+		<h3 class="subTitle">- 코로나 예방접종 센터 조회 결과 -</h3>
 
 		<Comp_TransitionOpacity>
 			<div class="titleWrapper" :key="title">
@@ -11,8 +11,9 @@
 				<Comp_SelectBox
 					v-if="hasSidoData"
 					class="sigunguSelector"
-					:dataList="[]"
-					v-model="selectedValue"
+					:dataList="sigunguSelectList"
+					:value="targetSigungu"
+					@input="onChangeSigungu"
 					placeholder="시군구 를 선택해 주세요"
 					backgroundColor="#fff"
 				></Comp_SelectBox>
@@ -20,8 +21,12 @@
 		</Comp_TransitionOpacity>
 
 		<Comp_TransitionOpacity>
-			<ul class="cardList" v-if="sidoList.length > 0" :key="title">
-				<template v-for="sido of sidoList">
+			<ul
+				class="cardList"
+				v-if="covidCenterList.length > 0"
+				:key="`${targetSido}-${targetSigungu}`"
+			>
+				<template v-for="sido of covidCenterList">
 					<li :key="`${sido.id}-${sido.centerName}`">
 						<Bl_CovidCenters_Card
 							:covidCenterInfo="sido"
@@ -51,8 +56,23 @@ export default Vue.extend({
 
 	data: () => {
 		return {
-			selectedValue: "",
+			covidCenterList: [] as DB_CovidCenter[],
 		};
+	},
+
+	watch: {
+		targetSido(newTargetSido) {
+			console.log("와치: ", newTargetSido);
+			this.$store.commit("/covidCenters/setTargetSigungu", "");
+
+			this.createCovidCenterList(newTargetSido);
+			this.moveScroll();
+		},
+
+		targetSigungu(newTargetSigungu) {
+			this.createCovidCenterList(this.targetSido, newTargetSigungu);
+			this.moveScroll();
+		},
 	},
 
 	computed: {
@@ -60,7 +80,11 @@ export default Vue.extend({
 			return this.$store.state["/covidCenters"].targetSido;
 		},
 
-		sidoList(): DB_CovidCenter[] {
+		targetSigungu(): string {
+			return this.$store.state["/covidCenters"].targetSigungu;
+		},
+
+		sigunguSelectList(): I_Comp_SelectBox<string>[] {
 			if (!this.targetSido) {
 				return [];
 			}
@@ -70,22 +94,43 @@ export default Vue.extend({
 				Map<string, DB_CovidCenter[]>
 			>;
 
-			const sidoList: DB_CovidCenter[] = [];
-
 			const targetSidoMap = sidoMap.get(this.targetSido) as Map<
 				string,
 				DB_CovidCenter[]
 			>;
 
-			targetSidoMap.forEach(sido => {
-				sidoList.push(...sido);
-			});
+			const keys = Array.from(targetSidoMap.keys());
 
-			return sidoList;
+			return keys.map(key => {
+				return {
+					selector: key,
+					value: key,
+				} as I_Comp_SelectBox<string>;
+			});
 		},
 
-		sigunguSelectList(): I_Comp_SelectBox<string>[] {
-			return [];
+		targetSidoCovidCenterCount(): number {
+			const targetSido = this.targetSido;
+
+			if (!targetSido) {
+				return 0;
+			} else {
+				const sidoMap = this.$store.state["/covidCenters"]
+					.covidCentersMap as Map<string, Map<string, DB_CovidCenter[]>>;
+
+				const targetCovidCenterList: DB_CovidCenter[] = [];
+
+				const targetSidoMap = sidoMap.get(targetSido) as Map<
+					string,
+					DB_CovidCenter[]
+				>;
+
+				targetSidoMap.forEach(sido => {
+					targetCovidCenterList.push(...sido);
+				});
+
+				return targetCovidCenterList.length;
+			}
 		},
 
 		title(): string {
@@ -95,18 +140,63 @@ export default Vue.extend({
 				return "검색 결과가 없습니다.";
 			}
 
-			return `${targetSido} (${this.sidoList.length})`;
+			return `${targetSido} (${this.targetSidoCovidCenterCount})`;
 		},
 
 		hasSidoData(): boolean {
-			return this.sidoList.length > 0;
+			return this.covidCenterList.length > 0;
 		},
 	},
 
 	methods: {
+		createCovidCenterList(targetSido: string, targetSigungu?: string): void {
+			const sidoMap = this.$store.state["/covidCenters"].covidCentersMap as Map<
+				string,
+				Map<string, DB_CovidCenter[]>
+			>;
+
+			if (!sidoMap.size) {
+				this.covidCenterList = [];
+				return;
+			}
+
+			const targetSidoMap = sidoMap.get(targetSido) as Map<
+				string,
+				DB_CovidCenter[]
+			>;
+
+			if (targetSigungu) {
+				const targetSigunguList = targetSidoMap.get(
+					targetSigungu,
+				) as DB_CovidCenter[];
+
+				this.covidCenterList = [...targetSigunguList];
+			} else {
+				const resultCovidCenterList: DB_CovidCenter[] = [];
+
+				targetSidoMap.forEach(covidCenterList => {
+					resultCovidCenterList.push(...covidCenterList);
+				});
+
+				this.covidCenterList = resultCovidCenterList;
+			}
+		},
+
+		moveScroll(): void {
+			//
+		},
+
+		onChangeSigungu(value: string): void {
+			this.$store.commit("/covidCenters/setTargetSigungu", value);
+		},
+
 		goToDetail(sido: DB_CovidCenter): void {
 			console.log("상세페이지 이동: ", sido.centerName);
 		},
+	},
+
+	created(): void {
+		this.createCovidCenterList(this.targetSido, this.targetSigungu);
 	},
 });
 </script>
@@ -117,7 +207,8 @@ export default Vue.extend({
 
 	padding: 40px;
 
-	background-color: $colors__gray_01;
+	border-top: 5px double $colors__gray_02;
+	border-bottom: 5px double $colors__gray_02;
 
 	.subTitle {
 		color: $colors__black_02;

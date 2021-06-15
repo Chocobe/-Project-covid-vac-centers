@@ -45,12 +45,12 @@ export default Vue.extend({
 
 	methods: {
 		onButtonClick(sidoName: string): void {
-			console.log("버튼 클릭: ", sidoName);
+			// console.log("버튼 클릭: ", sidoName);
 			this.$store.commit("/covidCenters/setTargetSido", sidoName);
 		},
 
 		onButtonEnter(sidoName: string): void {
-			console.log("버튼 엔터: ", sidoName);
+			// console.log("버튼 엔터: ", sidoName);
 			this.$store.commit("/covidCenters/setHoverSido", sidoName);
 		},
 

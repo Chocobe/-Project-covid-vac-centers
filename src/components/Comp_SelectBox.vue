@@ -10,7 +10,11 @@
 			</option>
 
 			<template v-for="(data, index) of dataList">
-				<option :key="`${index}-${data.selector}`" :value="data.value">
+				<option
+					:key="`${index}-${data.selector}`"
+					:value="data.value"
+					:selected="value === data.value"
+				>
 					{{ data.selector }}
 				</option>
 			</template>
