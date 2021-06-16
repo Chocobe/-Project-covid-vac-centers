@@ -242,6 +242,24 @@ export default Vue.extend({
 		grid-template-columns: repeat(4, 1fr);
 		grid-gap: 20px;
 		gap: 20px;
+
+		@media screen and (max-width: $media__maxWidth_md) {
+			& {
+				grid-template-columns: repeat(3, 1fr);
+			}
+		}
+
+		@media screen and (max-width: $media__maxWidth_sm) {
+			& {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		@media screen and (max-width: $media__maxWidth_xs) {
+			& {
+				grid-template-columns: 1fr;
+			}
+		}
 	}
 }
 </style>
