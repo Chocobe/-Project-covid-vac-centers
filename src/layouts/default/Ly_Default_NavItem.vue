@@ -44,8 +44,7 @@ export default Vue.extend({
 	min-width: 250px;
 
 	&__item {
-		@include width-height(100%);
-
+		@include width-height(100%, 100%);
 		padding: 10px 20px;
 
 		color: $colors__white_01;

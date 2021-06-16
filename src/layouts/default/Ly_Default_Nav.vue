@@ -37,7 +37,13 @@ export default Vue.extend({
 		& > * {
 			@include width-height(50%);
 
-			flex: 1;
+			flex: 1 auto;
+		}
+
+		@media screen and (max-width: $media__maxWidth_xs) {
+			& > * {
+				@include width-height(100%);
+			}
 		}
 	}
 }
