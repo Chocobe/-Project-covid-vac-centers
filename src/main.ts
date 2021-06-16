@@ -3,10 +3,13 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-import { initFontAwesome } from "@/plugins/fontawesome/pluginFontawesome";
-
 Vue.config.productionTip = false;
+
+import { initFontAwesome } from "@/plugins/fontawesome/pluginFontawesome";
+import { initVueElementResizeDetector } from "@/plugins/vueElementResizeDetector/vueElementResizeDetector";
+
 initFontAwesome();
+initVueElementResizeDetector();
 
 // SameSite 설정
 function initSameSiteRule(): void {
