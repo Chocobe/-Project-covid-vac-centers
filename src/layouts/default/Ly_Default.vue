@@ -6,12 +6,17 @@
 		</div>
 
 		<!-- Nav -->
-		<div class="navWrapper" :class="{ fixed: isFixedNav }">
+		<div
+			class="navWrapper"
+			:class="{ fixed: isFixedNav }"
+			v-resize
+			@resize="onResize"
+		>
 			<Ly_Default_Nav></Ly_Default_Nav>
 		</div>
 
 		<!-- Main -->
-		<main class="main">
+		<main class="main" :style="{ marginTop: navWrapperHeight }">
 			<Comp_TransitionOpacity>
 				<router-view></router-view>
 			</Comp_TransitionOpacity>
@@ -36,6 +41,7 @@ export default Vue.extend({
 		return {
 			// Scroll > 300 일 때, true
 			isFixedNav: false,
+			navWrapperHeight: "0",
 		};
 	},
 
@@ -44,6 +50,17 @@ export default Vue.extend({
 			const rootElement = this.$el as HTMLDivElement;
 			const scrollTop = rootElement.scrollTop;
 			this.isFixedNav = scrollTop > 300;
+		},
+
+		onResize(event: Event) {
+			const navWrapperElement = event.target as HTMLDivElement;
+			const height = getComputedStyle(navWrapperElement).height;
+
+			console.log("높이값: ", height);
+
+			if (this.navWrapperHeight !== height) {
+				this.navWrapperHeight = height;
+			}
 		},
 	},
 });
@@ -70,6 +87,11 @@ export default Vue.extend({
 		max-width: $media__maxWidth_md;
 
 		margin: 0 auto;
+
+		position: absolute;
+		top: 300px;
+		left: 50%;
+		transform: translateX(-50%);
 
 		z-index: 2;
 
