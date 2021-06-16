@@ -65,13 +65,19 @@ export default Vue.extend({
 			console.log("와치: ", newTargetSido);
 			this.$store.commit("/covidCenters/setTargetSigungu", "");
 
-			this.createCovidCenterList(newTargetSido);
-			this.moveScroll();
+			if (newTargetSido) {
+				this.createCovidCenterList(newTargetSido);
+				this.moveScroll();
+			} else {
+				this.covidCenterList = [];
+			}
 		},
 
 		targetSigungu(newTargetSigungu) {
-			this.createCovidCenterList(this.targetSido, newTargetSigungu);
-			this.moveScroll();
+			if (this.targetSido) {
+				this.createCovidCenterList(this.targetSido, newTargetSigungu);
+				this.moveScroll();
+			}
 		},
 	},
 
@@ -184,7 +190,9 @@ export default Vue.extend({
 
 		moveScroll(): void {
 			this.$nextTick(() => {
+				// window.setTimeout(() => {
 				this.$el.scrollIntoView({ behavior: "smooth" });
+				// }, 500);
 			});
 		},
 
