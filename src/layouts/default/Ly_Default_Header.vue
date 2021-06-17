@@ -63,7 +63,7 @@ export default Vue.extend({
 		$hospital-left: 10%;
 
 		&__wrapper {
-			@include width-height(100%, 0);
+			@include width-height(100%, 100%);
 
 			padding-top: 300px;
 
@@ -80,6 +80,12 @@ export default Vue.extend({
 			top: 0;
 			left: 300px;
 			transform: rotateZ(-40deg) translateY(-50%);
+
+			@media screen and (max-width: $media__maxWidth_xs) {
+				& {
+					opacity: 0.75;
+				}
+			}
 		}
 
 		// 수평 장식
@@ -94,6 +100,12 @@ export default Vue.extend({
 			top: 50%;
 			left: $decoVer-left;
 			transform: translateY(-50%);
+
+			@media screen and (max-width: $media__maxWidth_xs) {
+				& {
+					opacity: 0.75;
+				}
+			}
 		}
 
 		// 병원 이미지
@@ -103,6 +115,12 @@ export default Vue.extend({
 			position: absolute;
 			top: $hospital-left;
 			left: 10%;
+
+			@media screen and (max-width: $media__maxWidth_xs) {
+				& {
+					opacity: 0.75;
+				}
+			}
 		}
 		&__hospital {
 			//
@@ -115,6 +133,12 @@ export default Vue.extend({
 			position: absolute;
 			top: 30%;
 			left: 20%;
+
+			@media screen and (max-width: $media__maxWidth_xs) {
+				& {
+					opacity: 0.75;
+				}
+			}
 		}
 		&__personShadow {
 			@include width-height(calc(100% + 20px), 10%);
@@ -145,6 +169,12 @@ export default Vue.extend({
 			top: 50%;
 			left: calc(20% + #{$person-width});
 			transform: translateY(-50%);
+
+			@media screen and(max-width: $media__maxWidth_xs) {
+				& {
+					opacity: 0.75;
+				}
+			}
 		}
 		&__virus {
 			//
@@ -155,6 +185,7 @@ export default Vue.extend({
 			color: $colors__white_01;
 			font-size: $fontSize_30;
 			font-weight: 900;
+			text-shadow: 0 0 10px $colors__black_01;
 
 			position: absolute;
 			top: 50%;
@@ -165,6 +196,13 @@ export default Vue.extend({
 			}
 			&:nth-of-type(2) {
 				transform: translateY(calc(-50% + 20px));
+			}
+
+			@media screen and (max-width: $media__maxWidth_sm) {
+				& {
+					color: $colors__black_01;
+					text-shadow: 0 0 10px $colors__white_01;
+				}
 			}
 		}
 	}
