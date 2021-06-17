@@ -2,6 +2,23 @@
 	<div class="about">
 		<h1 class="about__title">컴포넌트 개발 페이지</h1>
 
+		<div style="display: flex; justify-content: center">
+			<Comp_IconButton @click="onIconClick"></Comp_IconButton>
+		</div>
+
+		<div style="display: flex; justify-content: center">
+			<Comp_IconButton
+				width="100px"
+				height="100px"
+				fontSize="60px"
+				iconColor="#03a9f4"
+				bgColor="#ff1493"
+				@click="onIconClick"
+			></Comp_IconButton>
+		</div>
+
+		<hr class="marginVer_20" />
+
 		<h1 class="about__title">선택한 값: {{ selectedValue }}</h1>
 
 		<!--		<div style="height: 100px">-->
@@ -80,11 +97,14 @@ import Vue from "vue";
 import Comp_SelectBox from "@/components/Comp_SelectBox.vue";
 import { I_Comp_SelectBox } from "@/interface/components/I_Comp_SelectBox";
 
+import Comp_IconButton from "@/components/Comp_IconButton.vue";
+
 export default Vue.extend({
 	components: {
 		// Comp_Card,
 		// Bl_CovidCenters_Card,
 		Comp_SelectBox,
+		Comp_IconButton,
 	},
 
 	data: () => {
@@ -134,6 +154,10 @@ export default Vue.extend({
 
 		onClick(): void {
 			console.log("클릭함");
+		},
+
+		onIconClick(): void {
+			console.log("아이콘 클릭");
 		},
 	},
 });
