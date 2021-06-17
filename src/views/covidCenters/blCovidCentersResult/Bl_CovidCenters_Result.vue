@@ -155,7 +155,11 @@ export default Vue.extend({
 	},
 
 	methods: {
-		createCovidCenterList(targetSido: string, targetSigungu?: string): void {
+		createCovidCenterList(targetSido?: string, targetSigungu?: string): void {
+			if (!targetSido) {
+				return;
+			}
+
 			const sidoMap = this.$store.state["/covidCenters"].covidCentersMap as Map<
 				string,
 				Map<string, DB_CovidCenter[]>
@@ -201,7 +205,12 @@ export default Vue.extend({
 		},
 
 		goToDetail(sido: DB_CovidCenter): void {
-			console.log("상세페이지 이동: ", sido.centerName);
+			this.$router.push({
+				path: "/",
+				params: {
+					id: String(sido.id),
+				},
+			});
 		},
 	},
 
