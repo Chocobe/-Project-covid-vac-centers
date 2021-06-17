@@ -96,7 +96,7 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 #Bl_CovidCenters_Guide {
-	padding: 40px;
+	padding: 40px 20px;
 }
 
 .guide {
@@ -151,9 +151,9 @@ export default Vue.extend({
 
 	// 가이드 섹션
 	&__section {
-		@include flex(flex-end);
+		// @include flex(flex-end);
 
-		padding: $section-padding;
+		padding: $section-padding 0;
 
 		position: relative;
 		overflow: hidden;
@@ -186,39 +186,79 @@ export default Vue.extend({
 		@for $i from 2 through 3 {
 			&:nth-of-type(#{$i}) {
 				margin-top: -75px;
+
+				@media screen and (max-width: $media__maxWidth_md) {
+					margin-top: -100px;
+				}
+
+				@media screen and (max-width: $media__maxWidth_xs) {
+					margin-top: -130px;
+				}
+			}
+		}
+
+		@media screen and (max-width: $media__maxWidth_sm) {
+			@for $i from 2 through 3 {
+				&:nth-of-type(#{$i}) {
+					// margin-top: -100px;
+				}
 			}
 		}
 	}
 
 	// 가이드 섹션: 설명 영역
 	&__descriptionWrapper {
-		@include flex(flex-start, flex-start, wrap, column);
-
-		margin: 0 auto;
+		//
 	}
 
 	&__description {
 		@include fontStyle-description();
+		text-align: center;
+		text-shadow: 0 0 10px $colors__white_01;
+
+		word-break: keep-all;
 
 		&_accent {
 			@include fontStyle-accent();
-		}
-
-		@for $i from 1 through 3 {
-			&:nth-of-type(#{$i}) {
-				margin-left: calc(#{$i - 1} * 3rem);
-			}
 		}
 	}
 
 	// 가이드 섹션: 이미지 영역
 	&__section__imgWrapper {
-		margin: 0 40px;
+		position: absolute;
+		bottom: 20%;
+
+		opacity: 0.5;
+
+		z-index: -1;
 	}
 
 	&__section__img {
-		@include width-height(100%);
 		max-width: 150px;
+	}
+
+	@mixin media__imgWrapper_xs() {
+		@media screen and (max-width: $media__maxWidth_xs) {
+			bottom: -20%;
+			right: auto;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -30%);
+
+			opacity: 0.25;
+		}
+	}
+
+	&__section:nth-of-type(2n - 1) &__section__imgWrapper {
+		left: 20px;
+
+		@include media__imgWrapper_xs();
+	}
+
+	&__section:nth-of-type(2n) &__section__imgWrapper {
+		right: 20px;
+
+		@include media__imgWrapper_xs();
 	}
 }
 </style>
