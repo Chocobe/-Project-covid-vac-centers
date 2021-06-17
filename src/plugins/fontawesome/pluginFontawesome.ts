@@ -15,6 +15,7 @@ import {
 	faCode,
 	faAngleDown,
 	faTimes,
+	faAngleDoubleUp,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Regular icon
@@ -26,6 +27,7 @@ library.add(
 	faCode,
 	faAngleDown,
 	faTimes,
+	faAngleDoubleUp,
 
 	// Regular icon
 	farUser,
