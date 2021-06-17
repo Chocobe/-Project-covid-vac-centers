@@ -33,6 +33,13 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+@media screen and (max-width: $media__maxWidth_xs) {
+	html,
+	body {
+		font-size: 14px !important;
+	}
+}
+
 #app {
 	//
 }
