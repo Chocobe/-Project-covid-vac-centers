@@ -21,6 +21,11 @@
 				<router-view></router-view>
 			</Comp_TransitionOpacity>
 		</main>
+
+		<!-- 위로 이동 버튼 -->
+		<div class="fixedButton">
+			<Comp_IconButton @click="goToTop"></Comp_IconButton>
+		</div>
 	</div>
 </template>
 
@@ -29,12 +34,14 @@ import Vue from "vue";
 import Ly_Default_Header from "@/layouts/default/Ly_Default_Header.vue";
 import Ly_Default_Nav from "@/layouts/default/Ly_Default_Nav.vue";
 import Comp_TransitionOpacity from "@/components/Comp_TransitionOpacity.vue";
+import Comp_IconButton from "@/components/Comp_IconButton.vue";
 
 export default Vue.extend({
 	components: {
 		Ly_Default_Header,
 		Ly_Default_Nav,
 		Comp_TransitionOpacity,
+		Comp_IconButton,
 	},
 
 	data: () => {
@@ -61,6 +68,16 @@ export default Vue.extend({
 			if (this.navWrapperHeight !== height) {
 				this.navWrapperHeight = height;
 			}
+		},
+
+		goToTop(): void {
+			const headerElement = this.$el.querySelector(
+				".headerWrapper",
+			) as HTMLDivElement;
+
+			this.$nextTick(() => {
+				headerElement.scrollIntoView();
+			});
 		},
 	},
 });
@@ -108,6 +125,14 @@ export default Vue.extend({
 		max-width: $media__maxWidth_md;
 
 		margin: 0 auto;
+	}
+
+	.fixedButton {
+		position: fixed;
+		bottom: 40px;
+		right: 40px;
+
+		z-index: 3;
 	}
 }
 </style>
