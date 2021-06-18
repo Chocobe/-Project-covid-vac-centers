@@ -21,6 +21,13 @@ const defaultRoute: RouteConfig = {
 				),
 		},
 		{
+			path: "center-detail/:id",
+			component: () =>
+				import(
+					/* webpackChunkName: "Page_CovidCenterDetail" */ "@/views/covidCenterDetail/Page_CovidCenterDetail.vue"
+				),
+		},
+		{
 			path: "dev",
 			component: () =>
 				import(/* webpackChunkName: "Page_Developer" */ "@/views/About.vue"),

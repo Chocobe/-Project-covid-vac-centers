@@ -63,8 +63,6 @@ export default Vue.extend({
 			const navWrapperElement = event.target as HTMLDivElement;
 			const height = getComputedStyle(navWrapperElement).height;
 
-			console.log("높이값: ", height);
-
 			if (this.navWrapperHeight !== height) {
 				this.navWrapperHeight = height;
 			}

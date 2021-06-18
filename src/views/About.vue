@@ -2,6 +2,12 @@
 	<div class="about">
 		<h1 class="about__title">컴포넌트 개발 페이지</h1>
 
+		<!-- 이분 탐색 -->
+		<div style="margin: 40px auto">
+			<h1>탐색횟수: {{ count }}</h1>
+			<h1>검색 결과: {{ result }}</h1>
+		</div>
+
 		<div style="display: flex; justify-content: center">
 			<Comp_IconButton @click="onIconClick"></Comp_IconButton>
 		</div>
@@ -98,6 +104,7 @@ import Comp_SelectBox from "@/components/Comp_SelectBox.vue";
 import { I_Comp_SelectBox } from "@/interface/components/I_Comp_SelectBox";
 
 import Comp_IconButton from "@/components/Comp_IconButton.vue";
+import { uBinarySearchForId } from "@/utilities/binarySearch";
 
 export default Vue.extend({
 	components: {
@@ -144,13 +151,39 @@ export default Vue.extend({
 				updatedAt: "2021-06-02 07:32:32",
 				zipCode: "49431",
 			},
+
+			count: 0,
+			result: null as { id: number; name: string } | null,
 		};
 	},
 
 	methods: {
-		onMyClick(): void {
-			console.log("안녕하세요~");
-		},
+		// binarySearch(arr: number[], target: number): number {
+		// 	let start = 0;
+		// 	let end = arr.length - 1;
+		// 	let mid = Math.floor((start + end) / 2);
+		//
+		// 	while (end - start >= 0) {
+		// 		console.log("미들: ", mid, " arr[mid]: ", arr[mid]);
+		// 		this.count++;
+		//
+		// 		if (arr[mid] > target) {
+		// 			end = mid - 1;
+		// 		} else if (arr[mid] < target) {
+		// 			start = mid + 1;
+		// 		} else {
+		// 			return mid;
+		// 		}
+		//
+		// 		mid = Math.floor((start + end) / 2);
+		// 	}
+		//
+		// 	return -1;
+		// },
+
+		// onMyClick(): void {
+		// 	console.log("안녕하세요~");
+		// },
 
 		onClick(): void {
 			console.log("클릭함");
@@ -159,6 +192,40 @@ export default Vue.extend({
 		onIconClick(): void {
 			console.log("아이콘 클릭");
 		},
+	},
+
+	mounted(): void {
+		const arr = [
+			{
+				id: 1,
+				name: "일",
+			},
+			{
+				id: 2,
+				name: "이",
+			},
+			{
+				id: 3,
+				name: "삼",
+			},
+			{
+				id: 4,
+				name: "사",
+			},
+			{
+				id: 5,
+				name: "오",
+			},
+			{
+				id: 6,
+				name: "육",
+			},
+		];
+		const targetId = 7;
+
+		const result = uBinarySearchForId(targetId, arr, "id");
+		this.result = arr[-1];
+		console.log("this.result: ", this.result);
 	},
 });
 </script>

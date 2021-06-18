@@ -62,6 +62,7 @@ import Vue, { PropType } from "vue";
 import Comp_Card from "@/components/Comp_Card.vue";
 import VueDaumMap from "vue-daum-map";
 import { DB_CovidCenter } from "@/interface/covidCenter/DB_CovidCenter";
+import { vueDaumMapKey } from "@/plugins/vueDaumMap/vueDaumMap";
 
 export default Vue.extend({
 	inheritAttrs: false,
@@ -80,7 +81,7 @@ export default Vue.extend({
 
 	data: () => {
 		return {
-			appKey: "8fd85eab4bc4cfe9a998d9b2e38129cd",
+			appKey: vueDaumMapKey,
 			level: 3,
 			mapTypeId: VueDaumMap.MapTypeId.NORMAL,
 		};

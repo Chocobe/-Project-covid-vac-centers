@@ -3,8 +3,8 @@
 		<div class="controller__selectorWrapper">
 			<Comp_SelectBox
 				:dataList="sidoSelectList"
-				@input="onChangeTargetSido"
-				:value="targetSido"
+				@input="onChangeTargetSidoName"
+				:value="targetSidoName"
 				placeholder="시도 를 선택해 주세요"
 			></Comp_SelectBox>
 		</div>
@@ -22,7 +22,7 @@
 				<Comp_Button
 					:key="`${index}-${sidoName}`"
 					:name="sidoName"
-					@click="onChangeTargetSido"
+					@click="onChangeTargetSidoName"
 					@enter="onButtonEnter"
 					@leave="onButtonLeave"
 				>
@@ -63,24 +63,24 @@ export default Vue.extend({
 			return Array.from(covidCentersMap.keys());
 		},
 
-		targetSido(): string {
-			return this.$store.state["/covidCenters"].targetSido;
+		targetSidoName(): string {
+			return this.$store.state["/covidCenters"].targetSidoName;
 		},
 	},
 
 	methods: {
-		onChangeTargetSido(sidoName: string): void {
+		onChangeTargetSidoName(sidoName: string): void {
 			// console.log("버튼 클릭: ", sidoName);
-			this.$store.commit("/covidCenters/setTargetSido", sidoName);
+			this.$store.commit("/covidCenters/setTargetSidoName", sidoName);
 		},
 
 		onButtonEnter(sidoName: string): void {
 			// console.log("버튼 엔터: ", sidoName);
-			this.$store.commit("/covidCenters/setHoverSido", sidoName);
+			this.$store.commit("/covidCenters/setHoverSidoName", sidoName);
 		},
 
 		onButtonLeave(): void {
-			this.$store.commit("/covidCenters/setHoverSido", "");
+			this.$store.commit("/covidCenters/setHoverSidoName", "");
 		},
 	},
 });

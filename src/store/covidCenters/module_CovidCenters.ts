@@ -25,13 +25,16 @@ const module_covidCenters: Module<IModule_CovidCenters, IModule_RootState> = {
 			// (Map 으로 가공된 originCovidCenterList)
 			covidCentersMap: new Map(),
 
+			// 대상 "예방접종 센터" 데이터
+			targetCenterData: null,
+
 			// 검색 대상 "시도" 명
-			targetSido: "",
+			targetSidoName: "",
 			// 검색 대상 "시군구" 명
-			targetSigungu: "",
+			targetSigunguName: "",
 
 			// Mouse Hover 된 "시도" 명
-			hoverSido: "",
+			hoverSidoName: "",
 		};
 	},
 
@@ -73,16 +76,20 @@ const module_covidCenters: Module<IModule_CovidCenters, IModule_RootState> = {
 			state.covidCentersMap = covidCentersMap;
 		},
 
-		setTargetSido(state, targetSido: string): void {
-			state.targetSido = targetSido;
+		setTargetCenterData(state, targetCenterData: DB_CovidCenter | null): void {
+			state.targetCenterData = targetCenterData;
 		},
 
-		setTargetSigungu(state, targetSigungu: string): void {
-			state.targetSigungu = targetSigungu;
+		setTargetSidoName(state, targetSidoName: string): void {
+			state.targetSidoName = targetSidoName;
 		},
 
-		setHoverSido(state, hoverSido: string): void {
-			state.hoverSido = hoverSido;
+		setTargetSigunguName(state, targetSigunguName: string): void {
+			state.targetSigunguName = targetSigunguName;
+		},
+
+		setHoverSidoName(state, hoverSidoName: string): void {
+			state.hoverSidoName = hoverSidoName;
 		},
 	},
 
@@ -92,7 +99,15 @@ const module_covidCenters: Module<IModule_CovidCenters, IModule_RootState> = {
 			params: DB_CovidCenter_Get_Params = {},
 		) {
 			const response = await apiGet_CovidCenters(params);
-			const originCovidCenterList = response.data.data;
+
+			const originCovidCenterList = response.data.data.sort((a, b) => {
+				if (a.id - b.id < 0) {
+					return -1;
+				} else {
+					return 1;
+				}
+			});
+
 			context.commit("setOriginCovidCenterList", originCovidCenterList);
 			context.commit("initCovidCentersMap", originCovidCenterList);
 		},

@@ -13,14 +13,17 @@ interface IModule_CovidCenters {
 	// (Map 으로 가공된 originCovidCenterList)
 	covidCentersMap: Map<string, Map<string, DB_CovidCenter[]>>;
 
+	// 대상 "예방접종 센터" 데이터
+	targetCenterData: DB_CovidCenter | null;
+
 	// 검색 대상 "시도" 명
-	targetSido: string;
+	targetSidoName: string;
 
 	// 검색 대상 "시군구" 명
-	targetSigungu: string;
+	targetSigunguName: string;
 
 	// Mouse Hover 된 "시도" 명
-	hoverSido: string;
+	hoverSidoName: string;
 }
 
 export { IModule_CovidCenters };
