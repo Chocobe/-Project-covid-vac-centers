@@ -24,6 +24,12 @@
 .gray_01 {
   background-color: $colors__gray_01 !important;
 }
+.gray_02 {
+  background-color: $colors__gray_02 !important;
+}
+.gray_03 {
+  background-color: $colors__gray_03 !important;
+}
 
 // - Blue 계열
 .blue_01 {
@@ -31,6 +37,9 @@
 }
 .blue_02 {
   background-color: $colors__blue_02 !important;
+}
+.blue_03 {
+  background-color: $colors__blue_03 !important;
 }
 
 // - Green 계열
@@ -46,7 +55,15 @@
 
 // - Orange 계열
 .orange_01 {
-  background-color: $colors__orange_01 !important;
+  background-color: $colors__orange_01;
+}
+.orange_02 {
+  background-color: $colors__orange_02 !important;
+}
+
+// Pink 계열
+.pink_01 {
+  background-color: $colors__pink_01 !important;
 }
 
 // --- --- ---
@@ -71,6 +88,12 @@
 .font__gray_01 {
   color: $colors__gray_01 !important;
 }
+.font__gray_02 {
+  color: $colors__gray_02 !important;
+}
+.font__gray_03 {
+  color: $colors__gray_03 !important;
+}
 
 // - Blue 계열
 .font__blue_01 {
@@ -78,6 +101,9 @@
 }
 .font__blue_02 {
   color: $colors__blue_02 !important;
+}
+.font__blue_03 {
+  color: $colors__blue_03 !important;
 }
 
 // - Green 계열
@@ -93,7 +119,15 @@
 
 // - Orange 계열
 .font__orange_01 {
-  color: $colors__orange_01 !important;
+  color: $colors__orange_01;
+}
+.font__orange_02 {
+  color: $colors__orange_02 !important;
+}
+
+// - Pink 계열
+.font__pink_01 {
+  color: $colors__pink_01 !important;
 }
 
 // --- --- ---
