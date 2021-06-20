@@ -52,11 +52,11 @@ export default Vue.extend({
 	transition: background-color 0.25s;
 
 	&:hover {
-		background-color: rgba($colors__blue_02, 0.3);
+		background-color: rgba($colors__blue_03, 0.3);
 	}
 
 	&:active {
-		background-color: rgba($colors__blue_02, 1);
+		background-color: rgba($colors__blue_03, 1);
 	}
 }
 </style>

@@ -203,6 +203,6 @@ export default Vue.extend({
 
 // 값이 선택된 상태에서, icon hover 스타일
 .selectBox__icon_selected:hover {
-	color: $colors__blue_01;
+	color: $colors__blue_02;
 }
 </style>

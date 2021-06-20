@@ -229,7 +229,7 @@ export default Vue.extend({
 
 			content: "";
 
-			background-color: $colors__blue_01;
+			background-color: $colors__blue_02;
 
 			position: absolute;
 			top: 50%;

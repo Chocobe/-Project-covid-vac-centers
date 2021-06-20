@@ -177,7 +177,7 @@ export default Vue.extend({
 			align-items: flex-start;
 
 			&::before {
-				background-color: $colors__blue_02;
+				background-color: $colors__blue_03;
 
 				transform: translateX(-50%) translateY(-50%) rotateZ(5deg);
 			}

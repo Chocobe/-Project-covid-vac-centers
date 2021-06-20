@@ -74,7 +74,7 @@ export default Vue.extend({
 		&__decoVer {
 			@include width-height(300px, 800px);
 
-			background-color: $colors__blue_02;
+			background-color: $colors__blue_03;
 
 			position: absolute;
 			top: 0;
@@ -94,7 +94,7 @@ export default Vue.extend({
 
 			@include width-height(100%, 100px);
 
-			background-color: $colors__blue_01;
+			background-color: $colors__blue_02;
 
 			position: absolute;
 			top: 50%;
