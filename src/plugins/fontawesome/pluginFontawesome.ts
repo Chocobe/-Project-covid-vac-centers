@@ -16,10 +16,26 @@ import {
 	faAngleDown,
 	faTimes,
 	faAngleDoubleUp,
+	faIdCard,
+	faChalkboardTeacher,
+	faObjectUngroup,
+	faUserCheck,
+	faCertificate,
+	faUserTie,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Regular icon
 import { faUser as farUser } from "@fortawesome/free-regular-svg-icons";
+
+// Brand icon
+import {
+	faGithub,
+	faVuejs,
+	faSass,
+	faJsSquare,
+	faMarkdown,
+	faFigma,
+} from "@fortawesome/free-brands-svg-icons";
 
 library.add(
 	// Solid icon
@@ -28,9 +44,23 @@ library.add(
 	faAngleDown,
 	faTimes,
 	faAngleDoubleUp,
+	faIdCard,
+	faChalkboardTeacher,
+	faObjectUngroup,
+	faUserCheck,
+	faCertificate,
+	faUserTie,
 
 	// Regular icon
 	farUser,
+
+	// Brand icon
+	faGithub,
+	faVuejs,
+	faSass,
+	faJsSquare,
+	faMarkdown,
+	faFigma,
 );
 
 function initFontAwesome(): void {
