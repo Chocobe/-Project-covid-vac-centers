@@ -28,7 +28,15 @@ const defaultRoute: RouteConfig = {
 				),
 		},
 		{
-			path: "dev",
+			path: "dev-info",
+			component: () =>
+				import(
+					/* webpackChunkName: "Page_DevInfo" */ "@/views/devInfo/Page_DevInfo.vue"
+				),
+		},
+
+		{
+			path: "/dev-test",
 			component: () =>
 				import(/* webpackChunkName: "Page_Developer" */ "@/views/About.vue"),
 		},

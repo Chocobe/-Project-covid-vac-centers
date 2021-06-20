@@ -16,10 +16,18 @@ const mock_NavItem_Response: DB_NavItem[] = [
   {
     id: 2,
     name: "개발자 정보",
-    path: "/dev",
+    path: "/dev-info",
     bgColor: "#03A9F4",
     icon: "code",
   },
+
+  // {
+  //   id: 3,
+  //   name: "개발자 정보",
+  //   path: "/dev-test",
+  //   bgColor: "#03A9F4",
+  //   icon: "code",
+  // },
 ];
 
 export { mock_NavItem_Response };
