@@ -48,6 +48,14 @@ export default Vue.extend({
 		@include width-height(300px);
 
 		margin-right: 20px;
+
+		@media screen and (max-width: $media__maxWidth_sm) {
+			& {
+				@include width-height(100%);
+
+				margin: 0 0 20px;
+			}
+		}
 	}
 
 	// 메인 정보
@@ -55,6 +63,13 @@ export default Vue.extend({
 		@include width-height(100%);
 
 		flex: 1;
+
+		@media screen and (max-width: $media__maxWidth_sm) {
+			& {
+				flex-shrink: 0;
+				flex-basis: auto;
+			}
+		}
 	}
 }
 </style>
