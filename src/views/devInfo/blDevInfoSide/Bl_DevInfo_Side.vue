@@ -18,81 +18,87 @@
 		<!-- 경계선 -->
 		<div class="separators"></div>
 
-		<!-- 섹션: 프로필 -->
-		<Bl_DevInfo_SideItem
-			class="sideSection"
-			icon="id-card"
-			title="프로필"
-			content="안녕하세요 초코비 프로필 입니다. 안녕하세요 초코비 프로필12341234
+		<div class="sideSection__sectionWrapper">
+			<!-- 섹션: 프로필 -->
+			<Bl_DevInfo_SideItem
+				class="sideSection"
+				icon="id-card"
+				title="프로필"
+				content="안녕하세요 초코비 프로필 입니다. 안녕하세요 초코비 프로필12341234
 				입니다."
-		></Bl_DevInfo_SideItem>
+			></Bl_DevInfo_SideItem>
 
-		<!-- 섹션: Github -->
-		<Bl_DevInfo_SideItem
-			class="sideSection"
-			icon="github"
-			iconPrefix="fab"
-			title="Github"
-		>
-			<a
-				class="sideSection__link"
-				href="https://github.com/Chocobe"
-				target="_blank"
+			<!-- 섹션: Github -->
+			<Bl_DevInfo_SideItem
+				class="sideSection"
+				icon="github"
+				iconPrefix="fab"
+				title="Github"
 			>
-				https://github.com/Chocobe
-			</a>
-		</Bl_DevInfo_SideItem>
+				<a
+					class="sideSection__link"
+					href="https://github.com/Chocobe"
+					target="_blank"
+				>
+					https://github.com/Chocobe
+				</a>
+			</Bl_DevInfo_SideItem>
 
-		<!-- 섹션: 블로그 -->
-		<Bl_DevInfo_SideItem
-			class="sideSection"
-			icon="chalkboard-teacher"
-			title="블로그"
-		>
-			<a
-				class="sideSection__link"
-				href="https://chocobe.github.io"
-				target="_blank"
+			<!-- 섹션: 블로그 -->
+			<Bl_DevInfo_SideItem
+				class="sideSection"
+				icon="chalkboard-teacher"
+				title="블로그"
 			>
-				https://chocobe.github.io
-			</a>
-		</Bl_DevInfo_SideItem>
+				<a
+					class="sideSection__link"
+					href="https://chocobe.github.io"
+					target="_blank"
+				>
+					https://chocobe.github.io
+				</a>
+			</Bl_DevInfo_SideItem>
 
-		<!-- 섹션: Storybook -->
-		<Bl_DevInfo_SideItem
-			class="sideSection"
-			icon="object-ungroup"
-			title="Storybook"
-		>
-			<a class="sideSection__link" href="#" target="_blank">
-				https://chocobe.storybook.io
-			</a>
-		</Bl_DevInfo_SideItem>
+			<!-- 섹션: Storybook -->
+			<Bl_DevInfo_SideItem
+				class="sideSection"
+				icon="object-ungroup"
+				title="Storybook"
+			>
+				<a class="sideSection__link" href="#" target="_blank">
+					https://chocobe.storybook.io
+				</a>
+			</Bl_DevInfo_SideItem>
 
-		<!-- 섹션: 개인성향 -->
-		<Bl_DevInfo_SideItem class="sideSection" icon="user-check" title="개인성향">
-			<div class="myTypeWrapper">
-				<div class="myType">
-					<h5 class="myType__label">근태</h5>
-					<Comp_GaugeBar class="myType__bar" percent="100%"></Comp_GaugeBar>
+			<!-- 섹션: 개인성향 -->
+			<Bl_DevInfo_SideItem
+				class="sideSection"
+				icon="user-check"
+				title="개인성향"
+			>
+				<div class="myTypeWrapper">
+					<div class="myType">
+						<h5 class="myType__label">근태</h5>
+						<Comp_GaugeBar class="myType__bar" percent="100%"></Comp_GaugeBar>
+					</div>
+
+					<div class="myType">
+						<h5 class="myType__label">정보공유</h5>
+						<Comp_GaugeBar class="myType__bar" percent="75%"></Comp_GaugeBar>
+					</div>
+
+					<div class="myType">
+						<h5 class="myType__label">개인 스터디</h5>
+						<Comp_GaugeBar class="myType__bar" percent="100%"></Comp_GaugeBar>
+					</div>
+
+					<div class="myType">
+						<h5 class="myType__label">커뮤니케이션</h5>
+						<Comp_GaugeBar class="myType__bar" percent="75%"></Comp_GaugeBar>
+					</div>
 				</div>
-
-				<div class="myType">
-					<h5 class="myType__label">정보공유</h5>
-					<Comp_GaugeBar class="myType__bar" percent="75%"></Comp_GaugeBar>
-				</div>
-
-				<div class="myType">
-					<h5 class="myType__label">개인 스터디</h5>
-					<Comp_GaugeBar class="myType__bar" percent="100%"></Comp_GaugeBar>
-				</div>
-
-				<div class="myType">
-					<h5 class="myType__label">커뮤니케이션</h5>
-					<Comp_GaugeBar class="myType__bar" percent="75%"></Comp_GaugeBar>
-				</div>
-			</div>
-		</Bl_DevInfo_SideItem>
+			</Bl_DevInfo_SideItem>
+		</div>
 	</article>
 </template>
 
@@ -124,9 +130,21 @@ export default Vue.extend({
 		margin-bottom: 0 !important;
 	}
 
+	@media screen and (max-width: $media__maxWidth_sm) {
+		@include flex(flex-start, flex-start);
+	}
+
 	// 증명사진 영역
 	.pictureWrapper {
 		//
+
+		@media screen and (max-width: $media__maxWidth_sm) {
+			@include width-height(250px);
+		}
+
+		@media screen and (max-width: $media__maxWidth_sm) {
+			margin: 0 auto;
+		}
 
 		&__inner {
 			@include width-height(66.6%);
@@ -157,6 +175,10 @@ export default Vue.extend({
 			color: $colors__black_02;
 			text-align: right;
 
+			@media screen and (max-width: $media__maxWidth_sm) {
+				text-align: center;
+			}
+
 			&_accent {
 				color: $colors__black_01;
 				font-weight: 900;
@@ -172,9 +194,28 @@ export default Vue.extend({
 
 		border-radius: 20px;
 		background-color: $colors__gray_03;
+
+		@media screen and (max-width: $media__maxWidth_sm) {
+			display: none;
+		}
+
+		@media screen and (max-width: $media__maxWidth_xs) {
+			display: block;
+		}
 	}
 
 	// 섹션
+	.sideSection__sectionWrapper {
+		@include width-height(100%);
+
+		flex: 1;
+
+		@media screen and (max-width: $media__maxWidth_xs) {
+			flex-shrink: 0;
+			flex-basis: auto;
+		}
+	}
+
 	.sideSection {
 		margin-bottom: 20px;
 
