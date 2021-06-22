@@ -35,10 +35,14 @@ export default Vue.extend({
 
 	position: absolute;
 	top: 50%;
-	right: 20px;
+	right: 10px;
 	transform: translateY(-50%);
 
 	z-index: -1;
+
+	@media screen and (max-width: $media__maxWidth_xs) {
+		@include width-height(80px, 80px);
+	}
 
 	& > * {
 		@include width-height(100%, 100%);
@@ -57,13 +61,15 @@ export default Vue.extend({
 	}
 
 	&__date {
-		@include width-height(100px);
+		// @include width-height(100px);
+
+		margin-left: 20px;
 	}
 
 	&__issuer {
-		@include width-height(100%);
+		// @include width-height(100px);
 
-		flex: 1;
+		margin-left: 20px;
 	}
 }
 </style>
