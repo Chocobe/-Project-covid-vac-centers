@@ -30,6 +30,10 @@ export default Vue.extend({
 	background-color: rgba($colors__white_01, 0.2);
 	background-blend-mode: multiply;
 
+	@media screen and (max-width: $media__maxWidth_sm) {
+		background-position: bottom center, center;
+	}
+
 	@mixin fontStyle($fontSize: 30px) {
 		padding: 10px 20px;
 
