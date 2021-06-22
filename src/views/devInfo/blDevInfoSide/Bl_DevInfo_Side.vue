@@ -20,13 +20,25 @@
 
 		<div class="sideSection__sectionWrapper">
 			<!-- 섹션: 프로필 -->
-			<Bl_DevInfo_SideItem
-				class="sideSection"
-				icon="id-card"
-				title="프로필"
-				content="안녕하세요 초코비 프로필 입니다. 안녕하세요 초코비 프로필12341234
-				입니다."
-			></Bl_DevInfo_SideItem>
+			<Bl_DevInfo_SideItem class="sideSection" icon="id-card" title="프로필">
+				<p class="sideSection__profile">
+					<span class="sideSection__profile_accent">꾸준한 자기개발</span>을
+					최고 장점으로 갖는 Front-End 주니어 개발자 입니다.
+				</p>
+
+				<p class="sideSection__profile">
+					메인 스킬셋은 <span class="sideSection__profile_accent">Vue</span>와
+					<span class="sideSection__profile_accent">Typescript</span> 이며,
+					컴파일 시 발생하는 오류나 경고에 대한 해결 욕구가 강합니다.
+				</p>
+
+				<p class="sideSection__profile">
+					<span class="sideSection__profile_accent">묵묵한 스타일</span> 이지만
+					팀에 조화되는 팀원이 되고자 노력하고 할당받은 업무에는
+					<span class="sideSection__profile_accent">책임감</span>을 갖는 스타일
+					입니다.
+				</p>
+			</Bl_DevInfo_SideItem>
 
 			<!-- 섹션: Github -->
 			<Bl_DevInfo_SideItem
@@ -218,6 +230,30 @@ export default Vue.extend({
 
 	.sideSection {
 		margin-bottom: 20px;
+
+		&__profile {
+			margin-top: 10px;
+			padding-left: 20px;
+
+			position: relative;
+
+			&::before {
+				@include width-height(5px, 5px);
+
+				content: "";
+
+				background-color: $colors__blue_02;
+
+				position: absolute;
+				top: 7.5px;
+				left: 7.5px;
+			}
+
+			&_accent {
+				color: $colors__orange_01;
+				font-weight: 900;
+			}
+		}
 
 		&__link {
 			color: $colors__blue_01;

@@ -6,13 +6,13 @@
 
 		<div class="certInfo">
 			<p class="certInfo__name">정보처리기사</p>
-			<p class="certInfo__date">2xxx. xx.</p>
-			<p class="certInfo__issuer">발급처</p>
+			<p class="certInfo__date">2019. 8 . 16</p>
+			<p class="certInfo__issuer">과학기술 정보통신부</p>
 		</div>
 
 		<div class="certInfo">
 			<p class="certInfo__name">일본어 JLPT 4급</p>
-			<p class="certInfo__date">2xxx. xx.</p>
+			<p class="certInfo__date">2xxx. xx. xx</p>
 			<p class="certInfo__issuer">발급처</p>
 		</div>
 	</Bl_DevInfo_Card>
@@ -61,12 +61,15 @@ export default Vue.extend({
 		flex-direction: column;
 	}
 
+	$name-width: 200px;
+	$date-width: 100px;
+
 	&__name {
-		@include width-height(200px);
+		@include width-height($name-width);
 	}
 
 	&__date {
-		// @include width-height(100px);
+		@include width-height($date-width);
 
 		margin-left: 20px;
 	}
