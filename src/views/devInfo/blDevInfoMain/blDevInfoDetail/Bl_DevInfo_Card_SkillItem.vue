@@ -63,9 +63,13 @@ export default Vue.extend({
 
 		position: absolute;
 		top: 0;
-		right: 0;
+		right: -20px;
 
 		z-index: -1;
+
+		@media screen and (max-width: $media__maxWidth_xs) {
+			right: -10px;
+		}
 
 		& > * {
 			@include width-height(100%);
@@ -98,11 +102,15 @@ export default Vue.extend({
 
 	&__contentWrapper {
 		@include width-height(100%);
-		min-width: 300px;
 
-		margin-left: 20px;
+		padding-left: 20px;
 
 		flex: 1;
+
+		@media screen and (max-width: $media__maxWidth_xs) {
+			flex-shrink: 0;
+			flex-basis: auto;
+		}
 	}
 
 	&__gaugeBar {
