@@ -12,8 +12,6 @@
 
 		<div class="careersInfo__content">부서명: 개발팀</div>
 
-		<div class="careersInfo__content">사원수: 1명</div>
-
 		<div class="careersInfo__content">
 			근무기간: 2020. 04. 01 ~ 2021. 04. 16 (1년 1개월)
 		</div>
@@ -35,9 +33,10 @@
 				</dd>
 
 				<!-- Vue 컴포넌트 문서화 -->
-				<dt class="careersInfo__list__label">Vue 컴포넌트 문서화</dt>
-				<dd class="careersInfo__list__content">
-					기간: 2020. 09. ~ 2021. 03. (7개월)
+				<dd
+					class="careersInfo__list__content careersInfo__list__content_single"
+				>
+					Vue 컴포넌트 문서화
 				</dd>
 
 				<!-- 기술 문서화 (Vue, Ag-Grid, Github) -->
@@ -75,9 +74,13 @@ export default Vue.extend({
 
 	position: absolute;
 	top: 10px;
-	right: 20px;
+	right: 10px;
 
 	z-index: -1;
+
+	@media screen and (max-width: $media__maxWidth_xs) {
+		@include width-height(80px, 80px);
+	}
 
 	& > * {
 		@include width-height(100%, 100%);
@@ -92,7 +95,6 @@ export default Vue.extend({
 .careersInfo__list {
 	@include flex(flex-start, flex-start);
 
-	padding-left: 20px;
 	word-break: keep-all;
 
 	&__label {
@@ -118,6 +120,13 @@ export default Vue.extend({
 
 	&__content {
 		@include width-height(calc(100% - 250px));
+
+		@media screen and (max-width: $media__maxWidth_xs) {
+			@include width-height(100%);
+
+			margin-bottom: 10px;
+			padding-left: 40px;
+		}
 
 		&_single {
 			@include width-height(100%);
