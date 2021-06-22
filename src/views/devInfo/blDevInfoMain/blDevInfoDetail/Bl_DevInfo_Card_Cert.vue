@@ -56,6 +56,11 @@ export default Vue.extend({
 
 	padding-left: 20px;
 
+	@media screen and (max-width: $media__maxWidth_xs) {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
 	&__name {
 		@include width-height(200px);
 	}
