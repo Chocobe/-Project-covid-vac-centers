@@ -30,6 +30,10 @@ export default {
 
 	position: relative;
 
+	@media screen and (max-width: $media__maxWidth_xs) {
+		padding: 20px;
+	}
+
 	&__title {
 		margin-bottom: 10px;
 
