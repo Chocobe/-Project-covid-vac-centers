@@ -13,7 +13,11 @@
 					<h3 class="structureInfo__version">Vue 2.x</h3>
 				</figure>
 
-				<div class="structureInfo__contentWrapper">
+				<div
+					class="
+						structureInfo__contentWrapper structureInfo__contentWrapper_flex
+					"
+				>
 					<div class="structureInfo__deco structureInfo__deco_vue"></div>
 
 					<p class="structureInfo__content">
@@ -171,7 +175,7 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 .structureInfo {
-	// overflow-x: hidden;
+	//
 
 	// Vue 색상
 	$bgColor__vue: #f5fdf7;
@@ -202,6 +206,14 @@ export default Vue.extend({
 		margin-right: $logoWrapper__margin;
 		padding-left: 20px;
 
+		@media screen and (max-width: $media__maxWidth_sm) {
+			@include width-height(100%);
+			@include flex(center, center, wrap, column);
+
+			margin-right: 0;
+			padding-right: 20px;
+		}
+
 		&_webpack {
 			@include width-height(100%);
 			@include flex(flex-end);
@@ -211,18 +223,34 @@ export default Vue.extend({
 	&__tag {
 		font-weight: 900;
 
+		@media screen and (max-width: $media__maxWidth_xs) {
+			display: none;
+		}
+
 		&:first-child {
 			margin-bottom: 20px;
+
+			@media screen and (max-width: $media__maxWidth_sm) {
+				margin-bottom: 0;
+			}
 		}
 
 		&:last-child {
 			margin-top: 20px;
+
+			@media screen and (max-width: $media__maxWidth_sm) {
+				margin-top: 0;
+			}
 		}
 	}
 
 	&__logo {
 		display: block;
 		margin: 0 auto;
+
+		@media screen and (max-width: $media__maxWidth_sm) {
+			margin: 0 20px;
+		}
 
 		&_webpack {
 			margin: 0 0 auto;
@@ -241,13 +269,21 @@ export default Vue.extend({
 
 		position: relative;
 
+		@media screen and (max-width: $media__maxWidth_sm) {
+			padding-bottom: 0;
+		}
+
 		&_flex {
 			flex: 1;
 		}
 	}
 
 	&__content {
-		//
+		padding: 0 20px;
+
+		@media screen and (max-width: $media__maxWidth_sm) {
+			text-align: center;
+		}
 	}
 
 	&__accent {
@@ -262,6 +298,13 @@ export default Vue.extend({
 		position: absolute;
 		top: 10px;
 		left: 0;
+
+		@media screen and (max-width: $media__maxWidth_sm) {
+			@include width-height(50%, 5px);
+
+			left: 50%;
+			transform: translateX(-50%);
+		}
 
 		&_vue {
 			background-color: $decoColor__vue;
@@ -289,20 +332,23 @@ export default Vue.extend({
 		&__inner {
 			@include flex();
 
-			padding: 20px 0;
+			padding: 20px 0 0;
 
 			position: relative;
+
 			background-color: $bgColor__vue;
 
 			&::after {
-				@include width-height(200%, 100%);
+				@include width-height(200%, 100px);
 
 				content: "";
 
 				background-color: $bgColor__vue;
 
 				position: absolute;
-				bottom: -20px;
+				bottom: -50px;
+				left: 0;
+				transform-origin: bottom left;
 				transform: rotateZ(-2.5deg);
 
 				z-index: -1;
@@ -312,7 +358,7 @@ export default Vue.extend({
 
 	// Webpack 영역
 	&__webpack {
-		margin-top: -40px;
+		margin-top: -25px;
 		padding: 50px 0 0;
 
 		overflow: hidden;
@@ -325,14 +371,16 @@ export default Vue.extend({
 			background-color: $bgColor__webpack;
 
 			&::before {
-				@include width-height(200%, 50px);
+				@include width-height(200%, 100px);
 
 				content: "";
 
 				background-color: $bgColor__webpack;
 
 				position: absolute;
-				top: -40px;
+				top: 0;
+				left: 0;
+				transform-origin: top left;
 				transform: rotateZ(-2.5deg);
 
 				z-index: -1;
@@ -354,6 +402,12 @@ export default Vue.extend({
 
 		position: relative;
 
+		@media screen and (max-width: $media__maxWidth_sm) {
+			padding-left: 0;
+
+			// TODO 여기 작업할 차례
+		}
+
 		&::before {
 			@include width-height(40px, 100%);
 
@@ -366,6 +420,10 @@ export default Vue.extend({
 			left: 0;
 
 			background-color: $bgColor__webpack;
+
+			@media screen and (max-width: $media__maxWidth_sm) {
+				display: none;
+			}
 		}
 	}
 
@@ -385,14 +443,15 @@ export default Vue.extend({
 			background-color: $bgColor__template;
 
 			&::after {
-				@include width-height(200%, 50px);
+				@include width-height(200%, 100px);
 
 				content: "";
 
 				position: absolute;
-				bottom: 20px;
-				left: 50%;
-				transform: rotateZ(-3deg) translateX(-50%);
+				bottom: -50px;
+				left: 0;
+				transform-origin: bottom left;
+				transform: rotateZ(-3deg);
 
 				background-color: $bgColor__template;
 
@@ -403,7 +462,7 @@ export default Vue.extend({
 
 	// script 영역
 	&__script {
-		margin-top: -20px;
+		margin-top: -25px;
 		padding: 50px 0;
 
 		overflow: hidden;
@@ -418,13 +477,14 @@ export default Vue.extend({
 			background-color: $bgColor__script;
 
 			&::before {
-				@include width-height(200%, 50px);
+				@include width-height(200%, 100px);
 
 				content: "";
 
 				position: absolute;
-				top: -50px;
+				top: 0;
 				left: 0;
+				transform-origin: top left;
 				transform: rotateZ(-3deg);
 
 				background-color: $bgColor__script;
@@ -433,14 +493,15 @@ export default Vue.extend({
 			}
 
 			&::after {
-				@include width-height(200%, 50px);
+				@include width-height(200%, 100px);
 
 				content: "";
 
 				position: absolute;
-				bottom: 20px;
-				left: 50%;
-				transform: rotateZ(-3deg) translateX(-50%);
+				bottom: -50px;
+				left: -10px;
+				transform-origin: top left;
+				transform: rotateZ(-3deg);
 
 				background-color: $bgColor__script;
 
@@ -451,7 +512,7 @@ export default Vue.extend({
 
 	// style 영역
 	&__style {
-		margin-top: -20px;
+		margin-top: -25px;
 		padding-top: 50px;
 
 		overflow: hidden;
@@ -459,20 +520,21 @@ export default Vue.extend({
 		&__inner {
 			@include flex(flex-start);
 
-			position: relative;
+			padding: 20px 0;
 
-			padding-bottom: 20px;
+			position: relative;
 
 			background-color: $bgColor__style;
 
 			&::before {
-				@include width-height(200%, 50px);
+				@include width-height(200%, 100px);
 
 				content: "";
 
 				position: absolute;
-				top: -50px;
+				top: 0;
 				left: 0;
+				transform-origin: top left;
 				transform: rotateZ(-3deg);
 
 				background-color: $bgColor__style;
