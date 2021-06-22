@@ -1,9 +1,3 @@
-/**
- * @author: 김영우
- * @description:
- *    * Storybook "main" 설정 파일 입니다.
- */
-
 const path = require("path");
 
 module.exports = {
@@ -24,7 +18,7 @@ module.exports = {
         loader: 'sass-loader',
         options: {
           prependData: `
-						@import "src/assets/scss/mixins/mixinWidthHeight.scss";
+						@import "src/assets/scss/globalStyles.scss";
 					`
         }
       }],
