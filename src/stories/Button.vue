@@ -64,5 +64,8 @@ export default {
 <style scoped lang="scss">
 .hello {
 	@include width-height(100%);
+	@include flex();
+
+	background-color: $colors__orange_01;
 }
 </style>
