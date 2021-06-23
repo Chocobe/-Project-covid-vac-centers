@@ -77,8 +77,12 @@
 				icon="object-ungroup"
 				title="Storybook"
 			>
-				<a class="sideSection__link" href="#" target="_blank">
-					https://chocobe.storybook.io
+				<a
+					class="sideSection__link"
+					href="https://storybook-covid-vac-centers-chocobe.netlify.app/"
+					target="_blank"
+				>
+					https://storybook-covid-vac-centers-chocobe.netlify.app/
 				</a>
 			</Bl_DevInfo_SideItem>
 
