@@ -50,9 +50,8 @@ function mockGet_CovidCenters(params: DB_CovidCenter_Get_Params) {
 }
 
 function apiGet_CovidCenters(
-	params: DB_CovidCenter_Get_Params = {},
+	params: DB_CovidCenter_Get_Params = { perPage: 0 },
 ): AxiosPromise<DB_CovidCenter_Response> {
-	// params: DB_CovidCenter_Get_Params = { perPage: 0 },
 	// return apiCovidCenterInstance.get(BASE_URL, { params });
 	return mockGet_CovidCenters(params);
 }
