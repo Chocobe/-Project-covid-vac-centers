@@ -6,14 +6,14 @@
 
 		<div class="certInfo">
 			<p class="certInfo__name">정보처리기사</p>
-			<p class="certInfo__date">2019. 8 . 16</p>
+			<p class="certInfo__date">2019. 08. 16</p>
 			<p class="certInfo__issuer">과학기술 정보통신부</p>
 		</div>
 
 		<div class="certInfo">
-			<p class="certInfo__name">일본어 JLPT 4급</p>
-			<p class="certInfo__date">2xxx. xx. xx</p>
-			<p class="certInfo__issuer">발급처</p>
+			<p class="certInfo__name">일본어 능력 시험 (JLPT N4)</p>
+			<p class="certInfo__date">2017. 12. 03</p>
+			<p class="certInfo__issuer">한일문화교류 협회</p>
 		</div>
 	</Bl_DevInfo_Card>
 </template>
