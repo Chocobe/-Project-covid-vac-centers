@@ -27,7 +27,7 @@
 				</dd>
 
 				<!-- 강철 절단 MES 프로젝트 -->
-				<dt class="careersInfo__list__label">강철 절단 MES 프로젝트</dt>
+				<dt class="careersInfo__list__label">강제 절단 MES 프로젝트</dt>
 				<dd class="careersInfo__list__content">
 					기간: 2020. 10. ~ 2021. 03. (6개월)
 				</dd>

@@ -110,7 +110,7 @@
 
 					<div class="myType">
 						<h5 class="myType__label">커뮤니케이션</h5>
-						<Comp_GaugeBar class="myType__bar" percent="75%"></Comp_GaugeBar>
+						<Comp_GaugeBar class="myType__bar" percent="50%"></Comp_GaugeBar>
 					</div>
 				</div>
 			</Bl_DevInfo_SideItem>
