@@ -17,22 +17,6 @@
 				속성, 상속 등을 사용할 수 있습니다.
 			</Bl_DevInfo_Card_SkillItem>
 
-			<!-- SCSS -->
-			<Bl_DevInfo_Card_SkillItem
-				title="SCSS"
-				percent="50%"
-				:icon="['fab', 'sass']"
-			>
-				Nesting, Mixins, Variables 등을 사용할 수 있고, BEM, PRECSS 설계방법을
-				적용시킬 수 있습니다.
-			</Bl_DevInfo_Card_SkillItem>
-
-			<!-- Github -->
-			<Bl_DevInfo_Card_SkillItem title="Github" percent="50%">
-				commit, amend, pull request, reset 등 형상관리 기능을 사용할 수
-				있습니다.
-			</Bl_DevInfo_Card_SkillItem>
-
 			<!-- Jaavascript -->
 			<Bl_DevInfo_Card_SkillItem
 				title="Javascript"
@@ -41,6 +25,22 @@
 			>
 				ES6+ 문법을 사용할 수 있고, prototype과 Execution Context에 대해
 				공부하였습니다.
+			</Bl_DevInfo_Card_SkillItem>
+
+			<!-- Github -->
+			<Bl_DevInfo_Card_SkillItem title="Github" percent="50%">
+				commit, amend, pull request, reset 등 형상관리 기능을 사용할 수
+				있습니다.
+			</Bl_DevInfo_Card_SkillItem>
+
+			<!-- SCSS -->
+			<Bl_DevInfo_Card_SkillItem
+				title="SCSS"
+				percent="50%"
+				:icon="['fab', 'sass']"
+			>
+				Nesting, Mixins, Variables 등을 사용할 수 있고, BEM, PRECSS 설계방법을
+				적용시킬 수 있습니다.
 			</Bl_DevInfo_Card_SkillItem>
 		</div>
 	</Bl_DevInfo_Card>
