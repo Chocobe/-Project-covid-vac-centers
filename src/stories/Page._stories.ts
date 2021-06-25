@@ -1,5 +1,5 @@
 import MyPage from "./Page.vue";
-import * as HeaderStories from "./Header.stories";
+import * as HeaderStories from "./Header._stories";
 import { Meta, Story } from "@storybook/vue";
 
 export default {
