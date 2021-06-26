@@ -79,10 +79,10 @@
 			>
 				<a
 					class="sideSection__link"
-					href="https://storybook-covid-vac-centers-chocobe.netlify.app/"
+					href="https://sb-c19ctr.netlify.app/"
 					target="_blank"
 				>
-					https://storybook-covid-vac-centers-chocobe.netlify.app/
+					https://sb-c19ctr.netlify.app/
 				</a>
 			</Bl_DevInfo_SideItem>
 
