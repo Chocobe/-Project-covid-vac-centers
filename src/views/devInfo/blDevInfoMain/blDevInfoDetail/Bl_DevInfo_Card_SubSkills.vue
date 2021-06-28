@@ -33,8 +33,8 @@
 				있습니다.
 			</Bl_DevInfo_Card_SkillItem>
 
-			<!-- JUnit -->
-			<Bl_DevInfo_Card_SkillItem title="JUnit" percent="20%">
+			<!-- Jest -->
+			<Bl_DevInfo_Card_SkillItem title="Jest" percent="20%">
 				정규식에 대한 Test Unit을 만들 수 있습니다.
 			</Bl_DevInfo_Card_SkillItem>
 		</div>
