@@ -4,7 +4,7 @@
 		<div class="pictureWrapper">
 			<figure class="pictureWrapper__inner">
 				<img
-					src="../../../assets/image/devInfo/증명사진2.jpg"
+					src="../../../assets/image/devInfo/공연.jpg"
 					alt="사진: 증명사진"
 					class="pictureWrapper__img"
 				/>
@@ -177,12 +177,12 @@ export default Vue.extend({
 		}
 
 		&__img {
-			@include width-height(100%);
+			@include width-height(auto, 105%);
 
 			object-fit: cover;
 
 			position: absolute;
-			top: 65%;
+			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
 		}
