@@ -2,22 +2,17 @@
 
 코로나19 예방접종 센터 조회 프로젝트 입니다.
 
-<img src="https://img.shields.io/badge/vue-v2.6.11-brightgreen" alt="버전: vue v2.6.11">
-<img src="https://img.shields.io/badge/vuex-v3.4.0-brightgreen" alt="버전: vuex v3.4.0">
-<img src="https://img.shields.io/badge/vue--router-v3.2.0-brightgreen" alt="버전: vue-router v3.2.0">
+<img src="https://img.shields.io/badge/vue-v2.6.11-brightgreen" alt="버전: vue v2.6.11"> <img src="https://img.shields.io/badge/vuex-v3.4.0-brightgreen" alt="버전: vuex v3.4.0"> <img src="https://img.shields.io/badge/vue--router-v3.2.0-brightgreen" alt="버전: vue-router v3.2.0">
 
 <br/>
 
-<img src="https://img.shields.io/badge/webpack-v4.46.0-important" alt="버전: webpack v4.46.0">
-<img src="https://img.shields.io/badge/babel-v7.14.6-important" alt="버전: babel v7.14.6">
-<img src="https://img.shields.io/badge/eslint-v6.7.2-yellow" alt="버전: eslint v6.7.2">
-<img src="https://img.shields.io/badge/prettier-v2.2.1-yellow" alt="버전: prettier v2.2.1">
+<img src="https://img.shields.io/badge/webpack-v4.46.0-important" alt="버전: webpack v4.46.0"> <img src="https://img.shields.io/badge/babel-v7.14.6-important" alt="버전: babel v7.14.6"> 
+
+<img src="https://img.shields.io/badge/eslint-v6.7.2-yellow" alt="버전: eslint v6.7.2"> <img src="https://img.shields.io/badge/prettier-v2.2.1-yellow" alt="버전: prettier v2.2.1">
 
 <br/>
 
-<img src="https://img.shields.io/badge/typescript-v4.1.5-red" alt="버전: typescript v4.1.5">
-<img src="https://img.shields.io/badge/node--sass-v4.12.0-red" alt="버전: node-sass v4.12.0">
-<img src="https://img.shields.io/badge/jest-v24.0.19-red" alt="버전: jest v24.0.19">
+<img src="https://img.shields.io/badge/typescript-v4.1.5-blue" alt="버전: typescript v4.1.5"> <img src="https://img.shields.io/badge/node--sass-v4.12.0-blue" alt="버전: node-sass v4.12.0"> <img src="https://img.shields.io/badge/jest-v24.0.19-blue" alt="버전: jest v24.0.19">
 
 
 <br/><br/>
